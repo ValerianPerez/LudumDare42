@@ -1,3 +1,14 @@
+﻿=== But du jeu ===
+- Livrer une quantité X de carottes à la planète mère
+- Le joueur consomme des carottes avec le temps
+- Aller de planète en planète afin de produire des carottes
+- Chaque planète devient incapable de produire selon les conditions d'environnement
+
+=== En vaisseau ===
+- A force de sauter le vaisseau perd de la capacité de stock
+- Réparer le vaisseau prend du temps (sur la planète)
+
+
 === Actions disponibles sur les cases ===
 Générales:
 - Creuser pour planter / Trouver de l'eau
@@ -10,7 +21,6 @@ Spécifique à un environnement:
 - Faire fondre la glace (Env glace)
 - Défricher (Env pousse rapide)
 - Mettre des pesticides (Env nuisibles)
-
 
 Env glace
 - La terre gèle de plus en plus vite avec la temperature qui baisse
