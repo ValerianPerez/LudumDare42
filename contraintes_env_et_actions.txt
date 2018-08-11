@@ -1,12 +1,18 @@
 ﻿=== But du jeu ===
-- Livrer une quantité X de carottes à la planète mère
-- Le joueur consomme des carottes avec le temps
-- Aller de planète en planète afin de produire des carottes
+- Livrer une quantité X de ressources à la planète mère
+- Le joueur consomme des ressources avec le temps
+- Aller de planète en planète afin de produire des ressources
 - Chaque planète devient incapable de produire selon les conditions d'environnement
 
 === En vaisseau ===
 - A force de sauter le vaisseau perd de la capacité de stock
 - Réparer le vaisseau prend du temps (sur la planète)
+- Le vaisseau à une quantité X de stock possible
+
+=== Niveaux de difficulté ===
+- Nombre de ressources à livrer ?
+- Sotck possible du vaisseau ?
+- Conditions plus rudes sur les planètes ?
 
 
 === Actions disponibles sur les cases ===
@@ -26,7 +32,7 @@ Env glace
 - La terre gèle de plus en plus vite avec la temperature qui baisse
 
 Env Radioactivité
-- La radioactivité rend les carottes impropes à la consomation
+- La radioactivité rend les ressources impropes à la consomation
 - Avec le temps l'eau pour arroser est de plus en plus radioactive et rend la terre radioactive
 
 Env feu
@@ -42,9 +48,9 @@ Env desert progresse
 Env nuisibles
 - Les emplacements sont attaqués par des nuisibles
 - Le nombre d'attaques augmente avec le temps
-- Mettre Beaucoup de pesticides rend les carottes impropes à la consomation
+- Mettre Beaucoup de pesticides rend les ressources impropes à la consomation
 
 Env poussent vite
-- Les carottes poussent vite
-- La végétation envahie les cases rapidement
+- Les ressources poussent vite
+- La végétation envahie les cases de plus en plus rapidement
 
