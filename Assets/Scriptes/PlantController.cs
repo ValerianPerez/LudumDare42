@@ -14,9 +14,15 @@ public class PlantController : MonoBehaviour
     EventSystem m_EventSystem;
 
     /// <summary>
+    /// The instanciable plant object
+    /// </summary>
+    [SerializeField]
+    private GameObject Plant;
+
+    /// <summary>
     /// The current item in hand
     /// </summary>
-    private ItemManager ActiveItem;
+    private ItemController ActiveItem;
 
     /// <summary>
     /// The manager of slots
@@ -24,41 +30,56 @@ public class PlantController : MonoBehaviour
     [SerializeField]
     private SlotManager Slots;
 
+    /// <summary>
+    /// The resource manager
+    /// </summary>
+    private ResourceManager rm;
+
     void Start()
     {
         //Fetch the Event System from the Scene
         m_EventSystem = GetComponent<EventSystem>();
+        rm = GetComponent<ResourceManager>();
+        rm.Init(1000, 100);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Check if the left Mouse button is clicked
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetMouseButtonDown(1))
         {
-            if (ActiveItem)
-            {
-
-            }
-            else
-            {
-                //Set up the new Pointer Event
-                m_PointerEventData = new PointerEventData(m_EventSystem);
-                //Set the Pointer Event Position to that of the mouse position
-                m_PointerEventData.position = Input.mousePosition;
-
-                //Create a list of Raycast Results
-                List<RaycastResult> results = new List<RaycastResult>();
-
-                //Raycast using the Graphics Raycaster and mouse click position
-                m_Raycaster.Raycast(m_PointerEventData, results);
-
-                //Assign an object
-                ActiveItem = results[0].gameObject.GetComponent<ItemManager>();
-
-                Slots.DisplayAvailability();
-            }
-
+            Destroy(ActiveItem.gameObject);
         }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void ClickOnPlant()
+    {
+        if (ActiveItem)
+        {
+            return;
+        }
+
+        ActiveItem = Instantiate(Plant).GetComponent<ItemController>();
+        ActiveItem.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
+
+        Slots.DisplayAvailability();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="position"></param>
+    public void ClickOnSlot(Vector2 position)
+    {
+        if (!ActiveItem)
+        {
+            return;
+        }
+
+        ActiveItem.ReleaseAt(position);
+        ActiveItem = null;
     }
 }

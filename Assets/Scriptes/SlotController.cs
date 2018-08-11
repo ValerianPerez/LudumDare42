@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SlotController : MonoBehaviour {
     /// <summary>
@@ -20,6 +21,8 @@ public class SlotController : MonoBehaviour {
     void Start()
     {
         CurrentState = SlotState.AVAILABLE;
+
+        GetComponent<Button>().onClick.AddListener(() => GameObject.Find("SceneManager").GetComponent<PlantController>().ClickOnSlot(transform.position));
     }
 
     /// <summary>
