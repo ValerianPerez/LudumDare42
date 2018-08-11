@@ -17,7 +17,19 @@ public class SceneManager : MonoBehaviour
     /// The instanciable plant object
     /// </summary>
     [SerializeField]
-    private GameObject Plant;
+    private GameObject GreenPlant;
+
+    /// <summary>
+    /// The instanciable plant object
+    /// </summary>
+    [SerializeField]
+    private GameObject RedPlant;
+
+    /// <summary>
+    /// The instanciable plant object
+    /// </summary>
+    [SerializeField]
+    private GameObject YellowPlant;
 
     /// <summary>
     /// The current item in hand
@@ -55,14 +67,25 @@ public class SceneManager : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    public void ClickOnPlant()
+    public void ClickOnPlant(string color)
     {
         if (ActiveItem)
         {
-            return;
+            Destroy(ActiveItem.gameObject);
         }
 
-        ActiveItem = Instantiate(Plant).GetComponent<ItemController>();
+        switch (color)
+        {
+            case "Green":
+                ActiveItem = Instantiate(GreenPlant ).GetComponent<ItemController>();
+                break;
+            case "Yellow":
+                ActiveItem = Instantiate(YellowPlant).GetComponent<ItemController>();
+                break;
+            case "Red":
+                ActiveItem = Instantiate(RedPlant).GetComponent<ItemController>();
+                break;
+        }
         ActiveItem.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
 
         Slots.DisplayAvailability();
@@ -80,6 +103,6 @@ public class SceneManager : MonoBehaviour
         }
 
         ActiveItem.ReleaseAt(position);
-        ActiveItem = null;
+        ActiveItem = Instantiate(ActiveItem.gameObject, GameObject.FindGameObjectWithTag("Canvas").transform).GetComponent<ItemController>();
     }
 }

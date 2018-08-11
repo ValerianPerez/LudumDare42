@@ -24,8 +24,6 @@ public class SlotController : MonoBehaviour
     void Start()
     {
         CurrentState = SlotState.AVAILABLE;
-
-        GetComponent<Button>().onClick.AddListener(() => OnClick());
     }
 
     /// <summary>
@@ -33,7 +31,8 @@ public class SlotController : MonoBehaviour
     /// </summary>
 	public void DisplayState()
     {
-        transform.Find("AvailableSprite").gameObject.SetActive(true);
+        transform.Find("AvailableSprite").gameObject.SetActive(false);
+
         switch (CurrentState)
         {
             case SlotState.AVAILABLE:
@@ -51,7 +50,7 @@ public class SlotController : MonoBehaviour
     /// <summary>
     /// The behaviour adding to the button
     /// </summary>
-    private void OnClick()
+    public void OnClick()
     {
         switch (CurrentState)
         {
@@ -66,5 +65,7 @@ public class SlotController : MonoBehaviour
             default:
                 break;
         }
+
+        DisplayState();
     }
 }

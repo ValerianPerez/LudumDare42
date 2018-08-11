@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SlotManager : MonoBehaviour
 {
-
     /// <summary>
     /// The slots of seeds
     /// </summary>
