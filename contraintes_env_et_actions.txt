@@ -1,0 +1,40 @@
+=== Actions disponibles sur les cases ===
+Générales:
+- Creuser pour planter / Trouver de l'eau
+- Placer des graines
+- Arroser
+- Récolter
+- Créer un puit
+
+Spécifique à un environnement:
+- Faire fondre la glace (Env glace)
+- Défricher (Env pousse rapide)
+- Mettre des pesticides (Env nuisibles)
+
+
+Env glace
+- La terre gèle de plus en plus vite avec la temperature qui baisse
+
+Env Radioactivité
+- La radioactivité rend les carottes impropes à la consomation
+- Avec le temps l'eau pour arroser est de plus en plus radioactive et rend la terre radioactive
+
+Env feu
+- Brule aléatoirement des cases
+- Plus le temps passe plus il y a de cases brulées
+
+Env eau limité
+- L'eau des puits ne se renouvelle pas
+
+Env desert progresse
+- Le desert avance et rend de plus en plus de cases inutilisables
+
+Env nuisibles
+- Les emplacements sont attaqués par des nuisibles
+- Le nombre d'attaques augmente avec le temps
+- Mettre Beaucoup de pesticides rend les carottes impropes à la consomation
+
+Env poussent vite
+- Les carottes poussent vite
+- La végétation envahie les cases rapidement
+
