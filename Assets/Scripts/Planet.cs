@@ -6,16 +6,27 @@ using UnityEngine.UI;
 
 public class Planet : MonoBehaviour {
 
-
+    Canvas canvas;
     Image img;
     Text text;
+    Text infoPlanete;
     public Sprite[] template;
-    MyPlanet myPlanet;
+
+    //<summary>
+    // The current planet
+    //</summary>
+    [SerializeField]
+    private MyPlanet myPlanet;
 
 	// Use this for initialization
 	void Start () {
-        img = this.gameObject.GetComponent<Image>();
-        text = this.gameObject.GetComponentInChildren<Text>();
+        this.img = this.gameObject.GetComponent<Image>();
+        this.text = this.gameObject.GetComponentInChildren<Text>();
+        this.canvas = this.gameObject.GetComponentInParent<Canvas>();
+
+        Transform textTr = this.canvas.transform.Find("Text_info_planete");
+        this.infoPlanete = textTr.GetComponent<Text>();
+
 	}
 	
 	// Update is called once per frame
@@ -29,6 +40,7 @@ public class Planet : MonoBehaviour {
         if (this.myPlanet == null) {
             this.myPlanet = new MyPlanet();
             this.changePlanetSkin(myPlanet.getPlanetType().getType());
+            this.getPlanetInfo();
         }
         
     }
@@ -43,27 +55,32 @@ public class Planet : MonoBehaviour {
     // Affiche les infos connues de la planète
     public void getPlanetInfo()
     {
-         
-
+       
         if (this.myPlanet != null)
         {
-            Debug.Log("Planet name: " + myPlanet.getName());
-            Debug.Log("Temperature: " + myPlanet.getTemperature());
-            Debug.Log("Radiation: " + myPlanet.getRadiation());
-            Debug.Log("Water coeficient: " + myPlanet.getCoeficienEau());
-            Debug.Log("Desaster speed: " + myPlanet.getVitesseDesastre());
+            this.infoPlanete.text = "Planet name: " + myPlanet.getName() + "\n" +
+                 "Planet type: " + myPlanet.getPlanetType().getTypeName() + "\n" +
+                "Temperature: " + myPlanet.getTemperature() + "\n" +
+                "Radiation: " + myPlanet.getPlanetType().getRadInfo() + "\n" +
+                "Water: " + myPlanet.getPlanetType().getWaterInfo() + "\n";           
         }
         else
         {
-            Debug.Log("Unknow");
-            Debug.Log("Planet name: Unknow");
-            Debug.Log("Temperature: Unknow");
-            Debug.Log("Radiation: Unknow");
-            Debug.Log("Water coeficient: Unknow");
-            Debug.Log("Desaster speed: Unknow");
-        }
+            this.infoPlanete.text = "Planet name: Unknow\n" +
+                 "Planet type: Unknow\n" +
+                "Temperature: Unknow\n" +
+                "Radiation: Unknow\n" +
+                "Water:: Unknow\n";
+        } 
        
     }
+
+
+    public void resetPlanetInfo()
+    {
+        this.infoPlanete.text = "";
+    }
+
 
     public string GetName() {  return myPlanet.getName(); }
 
@@ -71,6 +88,7 @@ public class Planet : MonoBehaviour {
     public double GetRadiation() { return myPlanet.getRadiation(); }
     public double GetWaterMultiplier() { return myPlanet.getCoeficienEau(); }
     public double GetDisasterFrequency() { return myPlanet.getVitesseDesastre(); }
+
 
     class MyPlanet
     {
@@ -148,12 +166,15 @@ public class Planet : MonoBehaviour {
          */
 
         int type;
-        const int NOMBRE_TYPE = 6;
-        
+        const int NOMBRE_TYPE = 6, BURNING_PLANET = 0, FROZEN_PLANET = 1,
+            DESERT_PLANET = 2, FAST_GROW_PLANET = 3, LOW_WATER_PLANET = 4,
+            RADIOACTIVE_PLANET = 5;       
+
         // Constructeur
         public PlanetType()
         {
-            this.type = Random.Range(0, NOMBRE_TYPE - 1);
+            this.type = Random.Range(0, NOMBRE_TYPE);
+            
         }
 
         public int getType()
@@ -166,13 +187,13 @@ public class Planet : MonoBehaviour {
         {
             double temp = 0; 
 
-            if (type == 0)
+            if (type == BURNING_PLANET)
             {
                 temp = Random.Range(35, 40);
-            }else if (type == 1)
+            }else if (type == FROZEN_PLANET)
             {
-                temp = Random.Range(2, 40);
-            }else if (type == 2 || type == 4)
+                temp = Random.Range(2, 5);
+            }else if (type == DESERT_PLANET || type == LOW_WATER_PLANET)
             {
                 temp = Random.Range(40, 45);
             }
@@ -189,7 +210,7 @@ public class Planet : MonoBehaviour {
         {
             double rad = 0;
 
-            if (type == 5)
+            if (type == RADIOACTIVE_PLANET)
             {
                 rad = Random.Range(1, 5);
             }
@@ -202,20 +223,20 @@ public class Planet : MonoBehaviour {
         {
             double coef = 0;
 
-            if (type == 0 || type == 2)
+            if (type == BURNING_PLANET || type == DESERT_PLANET)
             {
                 coef = Random.Range(0.5f, 0.8f);
             }
-            else if (type == 1 || type == 4)
+            else if (type == FROZEN_PLANET || type == LOW_WATER_PLANET)
             {
                 coef = 0;
             }           
             else
             {
                 coef = Random.Range(1.5f, 2.5f);
-            }
+            }           
 
-            return coef;
+            return System.Math.Round(coef);
         }
 
         // Détermine le coeficient de vitesse de départ des désastres
@@ -228,6 +249,73 @@ public class Planet : MonoBehaviour {
             double vitesse = Random.Range(0.5f, 1.5f);            
 
             return vitesse;
+        }
+
+        public string getTypeName()
+        {
+            string name = "Unknow";
+
+            switch (this.type)
+            {
+                case BURNING_PLANET: name = "Regulary burning";
+                    break;
+                case FROZEN_PLANET:
+                    name = "Frozen";
+                    break;
+                case DESERT_PLANET:
+                    name = "Desert";
+                    break;
+                case FAST_GROW_PLANET:
+                    name = "Fast growing";
+                    break;
+                case LOW_WATER_PLANET:
+                    name = "Low water";
+                    break;
+                case RADIOACTIVE_PLANET:
+                    name = "Lot of radiation";
+                    break;
+                default:
+                    name = "Unknow";
+                    break;
+            }
+
+            return name;
+        }
+
+        // Renvoi les infos sur la radioavtivité
+        public string getRadInfo()
+        {
+            string rad = "Low";
+
+            if(this.type == RADIOACTIVE_PLANET)
+            {
+                rad = "High";
+            }
+
+            return rad;
+        }
+
+        // Renvoi les infos sur l'eau
+        public string getWaterInfo()
+        {
+            string water = "Low";
+
+            if (this.type == BURNING_PLANET || this.type == DESERT_PLANET)
+            {
+                water = "Low";
+            }else if(this.type == LOW_WATER_PLANET){
+
+                water = "Very Low";
+            }else if (this.type == RADIOACTIVE_PLANET || this.type == FAST_GROW_PLANET)
+            {
+                water = "High";
+            }
+            else
+            {
+                water = "Very high";
+            }
+
+            return water;
         }
     }
 }
