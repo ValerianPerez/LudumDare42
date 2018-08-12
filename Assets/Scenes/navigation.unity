@@ -1293,6 +1293,7 @@ MonoBehaviour:
   planete7: {fileID: 761038771}
   planete8: {fileID: 1941709072}
   planete9: {fileID: 1615060735}
+  listeVisited: 
 --- !u!1 &830515079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,13 +1516,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Put travel info here:
-
-    - can travel ?
-
-    - ressources need?
-
-    - losing capacity risk?'
+  m_Text: 
 --- !u!222 &1308404388
 CanvasRenderer:
   m_ObjectHideFlags: 0
