@@ -16,11 +16,14 @@ public class ItemController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (IsGrab)
         {
-            transform.position = Input.mousePosition;
+            var screenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100); // 100 is the plane distance onthe UI canvas
+            transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
+
+            //transform.position = Input.mousePosition;
         }
     }
 

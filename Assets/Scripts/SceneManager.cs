@@ -13,6 +13,8 @@ public class SceneManager : MonoBehaviour
 
     EventSystem m_EventSystem;
 
+    public Transform GameCanvas;
+
     /// <summary>
     /// The instanciable plant object
     /// </summary>
@@ -77,13 +79,13 @@ public class SceneManager : MonoBehaviour
         switch (color)
         {
             case "Green":
-                ActiveItem = Instantiate(GreenPlant ).GetComponent<ItemController>();
+                ActiveItem = Instantiate(GreenPlant, GameCanvas).GetComponent<ItemController>();
                 break;
             case "Yellow":
-                ActiveItem = Instantiate(YellowPlant).GetComponent<ItemController>();
+                ActiveItem = Instantiate(YellowPlant, GameCanvas).GetComponent<ItemController>();
                 break;
             case "Red":
-                ActiveItem = Instantiate(RedPlant).GetComponent<ItemController>();
+                ActiveItem = Instantiate(RedPlant, GameCanvas).GetComponent<ItemController>();
                 break;
         }
         ActiveItem.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
