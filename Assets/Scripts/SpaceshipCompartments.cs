@@ -70,6 +70,7 @@ public class SpaceshipCompartments : MonoBehaviour {
         int food_compartments_full = (int)Mathf.Floor(Food / resource_per_compartment);
         float human_partial_level = Humans / resource_per_compartment - human_compartments_full;
         float food_partial_level = Food / resource_per_compartment - food_compartments_full;
+        int human_partial_count = human_partial_level > 0 ? 1 : 0;
 
 
         for (int i = 0; i < child_count - damaged_count; i++)
@@ -94,14 +95,14 @@ public class SpaceshipCompartments : MonoBehaviour {
                 float y_scale = human_partial_level;
                 compartmentMask.localScale = new Vector3(1, y_scale, 1);
             }
-            else if (i > human_compartments_full &&  i < human_compartments_full + food_compartments_full + 1) // +1 to take the partial into account
+            else if (i > human_compartments_full &&  i < human_compartments_full + food_compartments_full + human_partial_count) // +1 to take the partial into account
             {
                 food_sprite.SetActive(true);
                 human_sprite.SetActive(false);
                 compartmentMask.localScale = new Vector3(1, 1, 1);
                 //Debug.Log(compartment.name + " : food : y_scale_dmg: " + 1);
             }
-            else if (i == human_compartments_full + 1 + food_compartments_full)
+            else if (i == human_compartments_full + human_partial_count + food_compartments_full)
             {
                 food_sprite.SetActive(true);
                 human_sprite.SetActive(false);

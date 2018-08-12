@@ -49,7 +49,7 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && ActiveItem != null)
         {
             Destroy(ActiveItem.gameObject);
         }
@@ -92,8 +92,9 @@ public class SceneManager : MonoBehaviour
         {
             return;
         }
-
-        Instantiate(ActiveItem.gameObject, GameObject.FindGameObjectWithTag("Canvas").transform).GetComponent<ItemController>().ReleaseAt(position);
+        GameObject go = Instantiate(ActiveItem.gameObject, GameObject.FindGameObjectWithTag("Canvas").transform);
+        ActiveItem.ReleaseAt(position);
+        ActiveItem = go.GetComponent<ItemController>();
     }
 
     /// <summary>

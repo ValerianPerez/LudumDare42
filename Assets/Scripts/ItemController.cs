@@ -22,7 +22,6 @@ public class ItemController : MonoBehaviour
         {
             var screenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100); // 100 is the plane distance onthe UI canvas
             transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
-
             //transform.position = Input.mousePosition;
         }
     }
@@ -40,6 +39,7 @@ public class ItemController : MonoBehaviour
     /// </summary>
     public void Grab()
     {
+        Debug.Log("Grabbing " + name);
         IsGrab = true;
     }
 
@@ -59,5 +59,6 @@ public class ItemController : MonoBehaviour
     {
         Release();
         transform.position = position;
+        Debug.Log("releasing " + name);
     }
 }
