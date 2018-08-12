@@ -78,8 +78,6 @@ public class ResourceManager : MonoBehaviour {
         Debug.Log("MaxTotalResources: " + MaxTotalResources);
         Debug.Log("FoodResource: " + FoodResource);
 
-        Debug.Log(compartments);
-
         compartments.Humans = HumanResource;
         compartments.Food = FoodResource;
     }

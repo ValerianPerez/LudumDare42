@@ -480,7 +480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StarshipCompartmentsGO: {fileID: 108077510}
   IsActive: 0
-  WaterResource: 0
+  WaterResource: 1000
   HumanResource: 0
   WaterSlider: {fileID: 1625419644}
   WaterTimer: {fileID: 1377080530}
