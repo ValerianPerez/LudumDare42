@@ -8,14 +8,25 @@ public class GameManager : MonoBehaviour {
     public Planet currentPlanet;
     
     
-    ResourceManager resourceManager;
+    public GameObject SceneManagerGO;
+
+    SceneManager sm;
+    ResourceManager rm;
+    
+    public float StartingHumanResource;
+    public float StartingFoodResource;
 
 
 
+    // Use this for initialization
+    void Start () {
+        sm = SceneManagerGO.GetComponent<SceneManager>();
+        rm = SceneManagerGO.GetComponent<ResourceManager>();
 
-	// Use this for initialization
-	void Start () {
-		
+        rm.FoodResource = StartingFoodResource;
+        rm.HumanResource = StartingHumanResource;
+
+
 	}
 	
 	// Update is called once per frame

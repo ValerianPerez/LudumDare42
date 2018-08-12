@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ResourceManager : MonoBehaviour {
 
+    public GameObject StarshipCompartmentsGO;
+
     /// <summary>
     /// Define if the manager is active or not
     /// </summary>
@@ -36,19 +38,13 @@ public class ResourceManager : MonoBehaviour {
     public float FoodResource;
     public float FoodConsumedPerPerson;
     public double DeadCount;
+    public float MaxTotalResources;
 
-    /// <summary>
-    /// Initialization of resource manager
-    /// </summary>
-    /// <param name="human">Number of human</param>
-    /// <param name="water">Number of Water</param>
-    public void Init(int human, float food, float water)
+    SpaceshipCompartments compartments;
+
+    void Start()
     {
-        WaterResource = water;
-        HumanResource = human;
-        FoodResource = food;
-
-        IsActive = true;
+        compartments = StarshipCompartmentsGO.GetComponent<SpaceshipCompartments>();
     }
 
     void Update()
@@ -69,6 +65,20 @@ public class ResourceManager : MonoBehaviour {
         string seconds = (remainingTime % 60).ToString("00");
 
         WaterTimer.text = minutes + ":" + seconds;
+        
+        ManagePeople();
+        ManageFood();
+        MaxTotalResources = (compartments.columns * compartments.rows - compartments.damaged_count) * compartments.resource_per_compartment;
+        int OccupiedByHuman = (int)Mathf.Ceil(HumanResource / compartments.resource_per_compartment);
+        FoodResource = Mathf.Min(FoodResource, MaxTotalResources - OccupiedByHuman * compartments.resource_per_compartment);
+
+        Debug.Log("HumanResource: " + HumanResource);
+        Debug.Log("OccupiedByHuman: " + OccupiedByHuman);
+        Debug.Log("MaxTotalResources: " + MaxTotalResources);
+        Debug.Log("FoodResource: " + FoodResource);
+
+        compartments.Humans = HumanResource;
+        compartments.Food = FoodResource;
     }
 
     void ManagePeople()
