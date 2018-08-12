@@ -47,6 +47,7 @@ public class SpaceshipCompartments : MonoBehaviour {
 
     void FixedUpdate()
     {
+        // THIS should be happening inside game manager or something like this
         current_resources -= resource_drain;
         if (repairing)
         {
@@ -59,7 +60,6 @@ public class SpaceshipCompartments : MonoBehaviour {
                 repairing = false;
             }
         }
-        
     }
 
     // Update is called once per frame

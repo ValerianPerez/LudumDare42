@@ -65,6 +65,12 @@ public class Planet : MonoBehaviour {
        
     }
 
+    public string GetName() {  return myPlanet.getName(); }
+
+    public double GetTemperature() { return myPlanet.getTemperature(); }
+    public double GetRadiation() { return myPlanet.getRadiation(); }
+    public double GetWaterMultiplier() { return myPlanet.getCoeficienEau(); }
+    public double GetDisasterFrequency() { return myPlanet.getVitesseDesastre(); }
 
     class MyPlanet
     {
