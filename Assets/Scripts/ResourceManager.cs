@@ -40,11 +40,11 @@ public class ResourceManager : MonoBehaviour {
     public double DeadCount;
     public float MaxTotalResources;
 
-    SpaceshipCompartments compartments;
+    
 
     void Start()
     {
-        compartments = StarshipCompartmentsGO.GetComponent<SpaceshipCompartments>();
+        
     }
 
     void Update()
@@ -53,6 +53,7 @@ public class ResourceManager : MonoBehaviour {
         {
             return;
         }
+        SpaceshipCompartments compartments = StarshipCompartmentsGO.GetComponent<SpaceshipCompartments>();
 
         float decrease = 1 * Time.deltaTime;
        
@@ -76,6 +77,8 @@ public class ResourceManager : MonoBehaviour {
         Debug.Log("OccupiedByHuman: " + OccupiedByHuman);
         Debug.Log("MaxTotalResources: " + MaxTotalResources);
         Debug.Log("FoodResource: " + FoodResource);
+
+        Debug.Log(compartments);
 
         compartments.Humans = HumanResource;
         compartments.Food = FoodResource;

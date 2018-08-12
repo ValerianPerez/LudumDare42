@@ -113,6 +113,55 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &108077510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1052918483779026, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1456353271}
+--- !u!1 &800660553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 800660555}
+  - component: {fileID: 800660554}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &800660554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 800660553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81bf12aad1f4dd04fa1688e0b0351af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPlanet: {fileID: 0}
+  SceneManagerGO: {fileID: 1781859624}
+  StartingHumanResource: 1000
+  StartingFoodResource: 1500
+--- !u!4 &800660555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 800660553}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &861333723 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114339918694843054, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
@@ -299,36 +348,26 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114015775305150908, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1781859626}
-    - target: {fileID: 114634310887692704, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1781859626}
     - target: {fileID: 223142691194040330, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1197062861}
+    - target: {fileID: 114634310887692704, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1781859626}
     - target: {fileID: 114249898287291810, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1781859626}
-    - target: {fileID: 224643952512039266, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
+    - target: {fileID: 114015775305150908, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
         type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -581.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224643952512039266, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 159.5
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1781859626}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2f0d57eacf37ef42ae6b6a353d13ed9, type: 2}
   m_IsPrefabAsset: 0
@@ -439,8 +478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11b2b7d554c3b44c8fe36ab1e0855e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StarshipCompartmentsGO: {fileID: 1974887842341102, guid: 5a4b46c307773f64693dcbab0c857fe6,
-    type: 2}
+  StarshipCompartmentsGO: {fileID: 108077510}
   IsActive: 0
   WaterResource: 0
   HumanResource: 0
@@ -450,7 +488,7 @@ MonoBehaviour:
   DeadPerSec: 0
   FoodProduction: 0
   FoodResource: 0
-  FoodConsumedPerPerson: 0
+  FoodConsumedPerPerson: 0.00012
   DeadCount: 0
   MaxTotalResources: 0
 --- !u!114 &1781859626
