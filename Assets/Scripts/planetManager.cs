@@ -37,8 +37,7 @@ public class planetManager : MonoBehaviour
         planete7.GetComponent<Planet>().setPlanetIndex(7);
         planete8.GetComponent<Planet>().setPlanetIndex(8);
         planete9.GetComponent<Planet>().setPlanetIndex(9);
-
-
+        
         planete1.GetComponent<Planet>().generatePlanet();
 
 

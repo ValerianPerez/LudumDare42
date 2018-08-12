@@ -15,6 +15,7 @@ public class Planet : MonoBehaviour
     public Sprite[] template;
     public planetManager sm;
     private int planetIndex;
+    private Transform textTr;
 
     //<summary>
     // The current planet
@@ -25,11 +26,10 @@ public class Planet : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        this.img = this.gameObject.GetComponent<Image>();
-        this.text = this.gameObject.GetComponentInChildren<Text>();
+                
         this.canvas = this.gameObject.GetComponentInParent<Canvas>();
 
-        Transform textTr = this.canvas.transform.Find("Text_info_planete");
+        this.textTr = this.canvas.transform.Find("Text_info_planete");
         this.infoPlanete = textTr.GetComponent<Text>();
 
         textTr = this.canvas.transform.Find("Text_info_travel");
@@ -67,6 +67,8 @@ public class Planet : MonoBehaviour
     // Change l'apparence de la planète
     void changePlanetSkin(int type)
     {
+        this.img = this.gameObject.GetComponent<Image>();
+        this.text = this.gameObject.GetComponentInChildren<Text>();
         this.img.sprite = template[type];
         this.text.text = "";
     }
@@ -74,6 +76,12 @@ public class Planet : MonoBehaviour
     // Affiche les infos connues de la planète
     public void getPlanetInfo()
     {
+        this.canvas = this.gameObject.GetComponentInParent<Canvas>();
+        this.textTr = this.canvas.transform.Find("Text_info_planete");
+        this.infoPlanete = textTr.GetComponent<Text>();
+
+        this.textTr = this.canvas.transform.Find("Text_info_travel");
+        this.infoTravel = textTr.GetComponent<Text>();
 
         if (this.myPlanet != null)
         {
