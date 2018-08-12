@@ -13,6 +13,8 @@ public class Planet : MonoBehaviour
     Text infoPlanete;
     Text infoTravel;
     public Sprite[] template;
+    public planetManager sm;
+    private int planetIndex;
 
     //<summary>
     // The current planet
@@ -43,13 +45,22 @@ public class Planet : MonoBehaviour
 
     public void generatePlanet()
     {
-        //Si la planète n'a pas déjà été générée on la génère
-        if (this.myPlanet == null)
+
+        if ((sm.listeVisited[this.planetIndex - 1] == true && sm.listeVisited[this.planetIndex] == false) || this.planetIndex == 1)
         {
-            this.myPlanet = new MyPlanet();
-            this.changePlanetSkin(myPlanet.getPlanetType().getType());
-            this.getPlanetInfo();
+            //Si la planète n'a pas déjà été générée on la génère
+            if (this.myPlanet == null)
+            {
+                this.myPlanet = new MyPlanet();
+                this.changePlanetSkin(myPlanet.getPlanetType().getType());
+                this.getPlanetInfo();
+            }
+
+            sm.listeVisited[this.planetIndex] = true;
+            getPlanetInfo();
         }
+
+        
 
     }
 
@@ -80,8 +91,20 @@ public class Planet : MonoBehaviour
            "Temperature: Unknow\n" +
            "Radiation: Unknow\n" +
            "Water: Unknow\n";
+            
+        }
 
+        if (sm.listeVisited[this.planetIndex - 1] == true && sm.listeVisited[this.planetIndex] == false)
+        {
+            this.infoTravel.text = "You Can travel to this planet";
 
+        }else if (sm.listeVisited[this.planetIndex] == true && sm.listeVisited[this.planetIndex + 1] == false)
+        {
+            this.infoTravel.text = "You are here";
+        }
+        else
+        {
+            this.infoTravel.text = "You Can't travel to this planet yet";
         }
     }
 
@@ -94,7 +117,8 @@ public class Planet : MonoBehaviour
               "Radiation: Low\n" +
               "Water: High\n";
 
-        this.infoTravel.text = "Final goal";
+        this.infoTravel.text = "Final goal";        
+        
     }
 
     // Reinitialise le cadre des infos de planètes
@@ -109,8 +133,17 @@ public class Planet : MonoBehaviour
     public double GetTemperature() { return myPlanet.getTemperature(); }
     public double GetRadiation() { return myPlanet.getRadiation(); }
     public double GetWaterMultiplier() { return myPlanet.getCoeficienEau(); }
-    public double GetDisasterFrequency() { return myPlanet.getVitesseDesastre(); }
+    public double GetDisasterFrequency() { return myPlanet.getVitesseDesastre(); }   
 
+    public int getPlanetIndex()
+    {
+        return this.planetIndex;
+    }
+
+    public void setPlanetIndex(int index)
+    {
+        this.planetIndex = index;
+    }
 
     class MyPlanet
     {
