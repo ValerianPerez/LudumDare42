@@ -2709,7 +2709,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c686a971d356ebc4898c71c5f0481065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: []
+  template:
+  - {fileID: 21300000, guid: 1f1962cfae65cca4eb7fd6908e5670d0, type: 3}
+  - {fileID: 21300000, guid: 8974b038ccba8c240bc52ad94218b19a, type: 3}
+  - {fileID: 21300000, guid: 2c5d60241f215c5409d3c6568f5aeb58, type: 3}
+  - {fileID: 21300000, guid: c4ea450c70eaeba45a394a5c8a1eccf7, type: 3}
+  - {fileID: 21300000, guid: 8722ad2422302284b8789b6149dce77b, type: 3}
+  - {fileID: 21300000, guid: 585275f7a2e25e14d81b2eb87bc36bc6, type: 3}
   sm: {fileID: 770387013}
 --- !u!1 &1707238412
 GameObject:
