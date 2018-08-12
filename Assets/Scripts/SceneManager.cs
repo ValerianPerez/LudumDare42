@@ -53,8 +53,6 @@ public class SceneManager : MonoBehaviour
     {
         //Fetch the Event System from the Scene
         m_EventSystem = GetComponent<EventSystem>();
-        rm = GetComponent<ResourceManager>();
-        rm.Init(1000, 1000, 100);
     }
 
     // Update is called once per frame
