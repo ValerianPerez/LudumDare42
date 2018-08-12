@@ -16,22 +16,13 @@ public class SceneManager : MonoBehaviour
     public Transform GameCanvas;
 
     /// <summary>
-    /// The instanciable plant object
+    /// Different plants
     /// </summary>
-    [SerializeField]
-    private GameObject GreenPlant;
-
-    /// <summary>
-    /// The instanciable plant object
-    /// </summary>
-    [SerializeField]
-    private GameObject RedPlant;
-
-    /// <summary>
-    /// The instanciable plant object
-    /// </summary>
-    [SerializeField]
-    private GameObject YellowPlant;
+    public GameObject FrozenDeadPlant;
+    public GameObject FrozenPlant;
+    public GameObject NormalPlant;
+    public GameObject RadioactivePlant;
+    public GameObject SickPlant;
 
     /// <summary>
     /// The current item in hand
@@ -79,13 +70,13 @@ public class SceneManager : MonoBehaviour
         switch (color)
         {
             case "Green":
-                ActiveItem = Instantiate(GreenPlant, GameCanvas).GetComponent<ItemController>();
+                ActiveItem = Instantiate(PickAPlant(), GameCanvas).GetComponent<ItemController>();
                 break;
             case "Yellow":
-                ActiveItem = Instantiate(YellowPlant, GameCanvas).GetComponent<ItemController>();
+                ActiveItem = Instantiate(PickAPlant(), GameCanvas).GetComponent<ItemController>();
                 break;
             case "Red":
-                ActiveItem = Instantiate(RedPlant, GameCanvas).GetComponent<ItemController>();
+                ActiveItem = Instantiate(PickAPlant(), GameCanvas).GetComponent<ItemController>();
                 break;
         }
         ActiveItem.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
@@ -104,7 +95,15 @@ public class SceneManager : MonoBehaviour
             return;
         }
 
-        ActiveItem.ReleaseAt(position);
-        ActiveItem = Instantiate(ActiveItem.gameObject, GameObject.FindGameObjectWithTag("Canvas").transform).GetComponent<ItemController>();
+        Instantiate(ActiveItem.gameObject, GameObject.FindGameObjectWithTag("Canvas").transform).GetComponent<ItemController>().ReleaseAt(position);
+    }
+
+    /// <summary>
+    /// Select a plant
+    /// </summary>
+    /// <returns>The selected plant</returns>
+    private GameObject PickAPlant()
+    {
+        return NormalPlant;
     }
 }

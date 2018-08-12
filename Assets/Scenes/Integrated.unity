@@ -319,6 +319,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1781859626}
+    - target: {fileID: 224643952512039266, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -581.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224643952512039266, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 159.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2f0d57eacf37ef42ae6b6a353d13ed9, type: 2}
   m_IsPrefabAsset: 0
@@ -453,10 +463,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Raycaster: {fileID: 1642317141}
   GameCanvas: {fileID: 1642317144}
-  GreenPlant: {fileID: 1068743509630302, guid: 36b85b9231c091a4e86fd1265f986b0f, type: 2}
-  RedPlant: {fileID: 1374884620674710, guid: 01a3622ff38154547a0629cef217a8de, type: 2}
-  YellowPlant: {fileID: 1516400540163376, guid: 0e205e9505e607a49bc49700db10fbf6,
+  FrozenDeadPlant: {fileID: 1050504440522328, guid: f2c38f70e80cc6342b8b288204df4e6a,
     type: 2}
+  FrozenPlant: {fileID: 1336972532980830, guid: f05e4d03ea31dd44db9911d4eae2f643,
+    type: 2}
+  NormalPlant: {fileID: 1706881821128182, guid: 05b0f1c3078a65843b77179b854d0e05,
+    type: 2}
+  RadioactivePlant: {fileID: 1222257172909420, guid: 334a5061ac8d8f2448da361497deefc8,
+    type: 2}
+  SickPlant: {fileID: 1754742350307242, guid: ab0ff30c4b4031249a8202cccb9832a5, type: 2}
   Slots: {fileID: 861333723}
 --- !u!4 &1781859627
 Transform:

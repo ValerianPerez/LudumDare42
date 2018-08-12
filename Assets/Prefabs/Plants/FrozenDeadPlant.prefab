@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 222612924145584850}
   - component: {fileID: 114277117938762946}
   - component: {fileID: 95484366664371772}
+  - component: {fileID: 114756215494180568}
   m_Layer: 0
   m_Name: FrozenDeadPlant
   m_TagString: Untagged
@@ -60,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -74,6 +75,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114756215494180568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050504440522328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6591510dbf608ca409a4a12a6b954bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222612924145584850
 CanvasRenderer:
   m_ObjectHideFlags: 1

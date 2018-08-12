@@ -10,7 +10,7 @@ public class ItemController : MonoBehaviour
     /// </summary>
     public bool IsGrab { get; set; }
 
-    void Start()
+    protected void Start()
     {
         Grab();
     }
