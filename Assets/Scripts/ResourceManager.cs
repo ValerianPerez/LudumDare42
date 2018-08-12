@@ -65,8 +65,6 @@ public class ResourceManager : MonoBehaviour {
         WaterResource -= decrease;
         WaterSlider.value = WaterResource;
 
-        Debug.Log(remainingTime);
-
         string minutes = Mathf.Floor(remainingTime / 60).ToString("00");
         string seconds = (remainingTime % 60).ToString("00");
 
