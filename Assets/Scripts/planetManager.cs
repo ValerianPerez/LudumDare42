@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class planetManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    Canvas canvas;
+    // Use this for initialization
+    void Start () {
+        canvas = GetComponent<Canvas>();
+        Debug.Log(canvas);
+    }
 	
 	// Update is called once per frame
 	void Update () {
