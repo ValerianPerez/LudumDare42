@@ -175,6 +175,7 @@ public class CustomSceneManager : MonoBehaviour
     {
         LandingUI.SetActive(true);
         NavigationUI.SetActive(false);
+        rm.IsActive = true;
     }
 
     /// <summary>
