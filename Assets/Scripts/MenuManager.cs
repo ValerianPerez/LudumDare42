@@ -74,11 +74,14 @@ public class MenuManager : MonoBehaviour
     public void GameOver()
     {
         MenuUI.SetActive(false);
-        
+
         GameOverScreen.SetActive(true);
 
-        string bodyCount = GameObject.Find("SceneManager").GetComponent<ResourceManager>().DeadCount.ToString("0");
-        GameOverScreen.GetComponentInChildren<Text>().text = "The last " + bodyCount + " persons of your civilization are dead. \nYou are alone. And now ?";
+        ResourceManager rm = GameObject.Find("SceneManager").GetComponent<ResourceManager>();
+
+        string bodyCount = rm.DeadCount.ToString("0");
+        string eatenHumans = rm.EatenHumans.ToString("0");
+        GameOverScreen.GetComponentInChildren<Text>().text = "The last " + bodyCount + " persons of your civilization are dead and " + eatenHumans + " were eaten. \nYou are alone. And now ?";
     }
 
     /// <summary>
@@ -97,7 +100,7 @@ public class MenuManager : MonoBehaviour
 
         if (rm.EatenHumans != 0)
         {
-            WinnerScreen.GetComponentInChildren<Text>().text += "\nUnfortunately, people have eaten " + rm.EatenHumans.ToString("0")+ " other persons to survive...";
+            WinnerScreen.GetComponentInChildren<Text>().text += "\nUnfortunately, people have eaten " + rm.EatenHumans.ToString("0") + " other persons to survive...";
         }
     }
 
