@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114947672946450430}
   m_Layer: 0
   m_Name: NormalPlant
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,7 +87,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MatureDuration: 2
-  HarvestAmount: 1
+  HarvestAmount: 15
+  WaterDrain: 1
 --- !u!222 &222323347549318728
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -72,8 +72,6 @@ public class SpaceshipCompartments : MonoBehaviour {
         float food_partial_level = Food / resource_per_compartment - food_compartments_full;
         int human_partial_count = human_partial_level > 0 ? 1 : 0;
 
-        Debug.Log("------" + human_partial_count + "-------------");
-
 
         for (int i = 0; i < child_count - damaged_count; i++)
         {

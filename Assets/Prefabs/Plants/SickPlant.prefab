@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114393223322746044}
   m_Layer: 0
   m_Name: SickPlant
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,6 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MatureDuration: 2
   HarvestAmount: 1
+  WaterDrain: 1
 --- !u!114 &114506710440461904
 MonoBehaviour:
   m_ObjectHideFlags: 1

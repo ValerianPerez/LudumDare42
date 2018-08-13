@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114403599531924626}
   m_Layer: 0
   m_Name: RadioactivePlant
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,6 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MatureDuration: 2
   HarvestAmount: 1
+  WaterDrain: 1
 --- !u!222 &222816393697939488
 CanvasRenderer:
   m_ObjectHideFlags: 1

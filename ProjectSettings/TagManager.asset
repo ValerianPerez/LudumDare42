@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Slot
   - Canvas
+  - Plant
   layers:
   - Default
   - TransparentFX
