@@ -118,6 +118,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1426361399573088, guid: 736c1e6b313cce249ba1f632843b2604,
     type: 2}
   m_PrefabInternal: {fileID: 1105814582}
+--- !u!1 &151729604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1574501382573282, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
+    type: 2}
+  m_PrefabInternal: {fileID: 973709336}
 --- !u!224 &517909128 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224691211999227882, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
@@ -324,6 +329,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1574501382573282, guid: c6b94dfe2d247ff41a993d4fc02ecb75, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b94dfe2d247ff41a993d4fc02ecb75, type: 2}
   m_IsPrefabAsset: 0
@@ -392,12 +401,12 @@ Prefab:
     - target: {fileID: 224561274343341128, guid: 736c1e6b313cce249ba1f632843b2604,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 224561274343341128, guid: 736c1e6b313cce249ba1f632843b2604,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 224561274343341128, guid: 736c1e6b313cce249ba1f632843b2604,
         type: 2}
@@ -825,7 +834,7 @@ MonoBehaviour:
   GameCanvas: {fileID: 1642317144}
   NavigationUI: {fileID: 1239018904}
   LandingUI: {fileID: 1730174121}
-  MenuUI: {fileID: 0}
+  MenuUI: {fileID: 151729604}
   FrozenDeadPlant: {fileID: 1050504440522328, guid: f2c38f70e80cc6342b8b288204df4e6a,
     type: 2}
   FrozenPlant: {fileID: 1336972532980830, guid: f05e4d03ea31dd44db9911d4eae2f643,

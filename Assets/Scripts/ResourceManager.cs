@@ -81,9 +81,10 @@ public class ResourceManager : MonoBehaviour
         compartments.Food = FoodResource;
 
         //GameOver Condition
-        if (HumanResource <= 0)
+        if (HumanResource < 1)
         {
-            GameObject.Find("SceneMaanger").GetComponent<CustomSceneManager>().LoseTheGame();
+            GameObject.Find("SceneManager").GetComponent<CustomSceneManager>().LoseTheGame();
+            IsActive = false;
         }
     }
 
