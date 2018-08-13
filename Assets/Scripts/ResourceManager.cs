@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ResourceManager : MonoBehaviour {
+public class ResourceManager : MonoBehaviour
+{
 
     public GameObject StarshipCompartmentsGO;
 
@@ -16,6 +17,8 @@ public class ResourceManager : MonoBehaviour {
     /// The current amount of water
     /// </summary>
     public float WaterResource;
+
+    public float MaxWater;
 
     /// <summary>
     /// The current amount of human
@@ -40,11 +43,11 @@ public class ResourceManager : MonoBehaviour {
     public double DeadCount;
     public float MaxTotalResources;
 
-    
+
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -55,41 +58,62 @@ public class ResourceManager : MonoBehaviour {
         }
         SpaceshipCompartments compartments = StarshipCompartmentsGO.GetComponent<SpaceshipCompartments>();
 
-        float decrease = 1 * Time.deltaTime;
-       
+        float decrease = ManageWater() * Time.deltaTime;
+
         float remainingTime = WaterResource / decrease * Time.deltaTime;
 
-        WaterResource -= decrease;
-        WaterSlider.value = WaterResource;
+        WaterSlider.value = WaterResource/MaxWater;
 
         string minutes = Mathf.Floor(remainingTime / 60).ToString("00");
-        string seconds = (remainingTime % 60).ToString("00");
+        string seconds = (Mathf.RoundToInt(remainingTime) % 60).ToString("00");
 
         WaterTimer.text = minutes + ":" + seconds;
-        
+
         ManagePeople();
         ManageFood();
         MaxTotalResources = (compartments.columns * compartments.rows - compartments.damaged_count) * compartments.resource_per_compartment;
         int OccupiedByHuman = (int)Mathf.Ceil(HumanResource / compartments.resource_per_compartment);
         FoodResource = Mathf.Min(FoodResource, MaxTotalResources - OccupiedByHuman * compartments.resource_per_compartment);
 
-        Debug.Log("HumanResource: " + HumanResource);
-        Debug.Log("OccupiedByHuman: " + OccupiedByHuman);
-        Debug.Log("MaxTotalResources: " + MaxTotalResources);
-        Debug.Log("FoodResource: " + FoodResource);
-
         compartments.Humans = HumanResource;
         compartments.Food = FoodResource;
     }
 
+    float ManageWater()
+    {
+        GameObject[] plants = GameObject.FindGameObjectsWithTag("Plant");
+        float water_drained = 1f;
+        Debug.Log("Found plants: " + plants.Length);
+        ItemController item;
+        foreach (GameObject plant in plants)
+        {
+            item = plant.GetComponent<ItemController>();
+            
+            if (WaterResource - item.GetWaterDrain() <= 0)
+            {
+                WaterResource = 0;
+                item.SoDryIWantToDie();
+            } else
+            {
+                WaterResource -= item.GetWaterDrain();
+                water_drained += item.GetWaterDrain();
+            }
+            
+        }
+        ;
+        Debug.Log("Fwater_drained: " + water_drained);
+        return water_drained;
+    }
+
+
     void ManagePeople()
     {
-        HumanResource += (BornPerSec - DeadPerSec) * Time.deltaTime;
+        HumanResource += (BornPerSec - DeadPerSec) * HumanResource * Time.deltaTime;
         DeadCount += DeadPerSec * Time.deltaTime;
     }
 
     void ManageFood()
     {
-        FoodResource += FoodProduction - HumanResource * FoodConsumedPerPerson;
+        FoodResource -= HumanResource * FoodConsumedPerPerson * Time.deltaTime;
     }
 }

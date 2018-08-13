@@ -50,6 +50,8 @@ public class ItemController : MonoBehaviour
     /// </summary>
     public float HarvestAmount;
 
+    public float WaterDrain;
+
     protected void Start()
     {
         Grab();
@@ -76,6 +78,13 @@ public class ItemController : MonoBehaviour
                 Anim.SetTrigger("isDying");
             }
         }
+    }
+
+    public void SoDryIWantToDie()
+    {
+        Anim.SetTrigger("isDying");
+        Chrono = MatureDuration + 1;
+        HarvestAmount = 0;
     }
 
     /// <summary>
@@ -189,5 +198,46 @@ public class ItemController : MonoBehaviour
         Destroy(gameObject, .05f);
 
         return HarvestAmount;
+    }
+
+
+    public float GetWaterDrain()
+    {
+        if (IsGrab)
+        {
+            return 0f;
+        }
+
+        float actual_drain = 0f;
+        switch (CurrentState)
+        {
+            case PlantState.SEED:
+                actual_drain = WaterDrain;
+                break;
+            case PlantState.GROWING:
+                actual_drain = WaterDrain;
+                break;
+            case PlantState.MATURE:
+                actual_drain = WaterDrain;
+                break;
+            case PlantState.DYING:
+                actual_drain = WaterDrain / 3;
+                break;
+            case PlantState.DEAD:
+                actual_drain = 0;
+                break;
+            case PlantState.SICK:
+                actual_drain = WaterDrain;
+                break;
+            case PlantState.BURNING:
+                actual_drain = 0;
+                break;
+            case PlantState.FROZEN:
+                actual_drain = 0;
+                break;
+            default:
+                break;
+        }
+        return actual_drain;
     }
 }

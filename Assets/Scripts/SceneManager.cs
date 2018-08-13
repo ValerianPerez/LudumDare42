@@ -54,6 +54,7 @@ public class SceneManager : MonoBehaviour
     {
         //Fetch the Event System from the Scene
         m_EventSystem = GetComponent<EventSystem>();
+        rm = GetComponent<ResourceManager>();
 
         CurrentState = ActiveItemState.FREE;
     }
@@ -82,12 +83,18 @@ public class SceneManager : MonoBehaviour
         {
             case "Green":
                 ActiveItem = Instantiate(PickAPlant(), GameCanvas).GetComponent<ItemController>();
+                ActiveItem.HarvestAmount *= 1;
+                ActiveItem.WaterDrain *= 1;
                 break;
             case "Yellow":
                 ActiveItem = Instantiate(PickAPlant(), GameCanvas).GetComponent<ItemController>();
+                ActiveItem.HarvestAmount *= 1.25f;
+                ActiveItem.WaterDrain *= 1.5f;
                 break;
             case "Red":
                 ActiveItem = Instantiate(PickAPlant(), GameCanvas).GetComponent<ItemController>();
+                ActiveItem.HarvestAmount *= 1.4f;
+                ActiveItem.WaterDrain *= 2.5f;
                 break;
         }
         ActiveItem.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
@@ -139,7 +146,7 @@ public class SceneManager : MonoBehaviour
     /// <param name="amount">The amount to add</param>
     public void AddPlantResource(float amount)
     {
-        Debug.Log(amount);
+        rm.FoodResource += amount;
     }
 
     /// <summary>
