@@ -84,6 +84,7 @@ public class MenuManager : MonoBehaviour {
     /// </summary>
     public void Restart()
     {
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
