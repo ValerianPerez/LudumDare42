@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour {
 
@@ -69,8 +68,6 @@ public class MenuManager : MonoBehaviour {
     {
         MenuUI.SetActive(false);
         GameOverScreen.SetActive(true);
-        double deadTotal = GameObject.Find("SceneManager").GetComponent<ResourceManager>().DeadCount;
-        GameOverScreen.GetComponentInChildren<Text>().text = "The last "+ deadTotal +" persons of your civilisation are dead. \nAnd now ?";
     }
 
     /// <summary>
