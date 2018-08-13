@@ -479,7 +479,9 @@ MonoBehaviour:
   FoodProduction: 0
   FoodResource: 0
   FoodConsumedPerPerson: 0.02
+  FoodInsidePerson: 10
   DeadCount: 0
+  EatenHumans: 0
   MaxTotalResources: 0
 --- !u!114 &1781859626
 MonoBehaviour:
