@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
     
     public GameObject SceneManagerGO;
 
-    SceneManager sm;
+    CustomSceneManager sm;
     ResourceManager rm;
     
     public float StartingHumanResource;
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        sm = SceneManagerGO.GetComponent<SceneManager>();
+        sm = SceneManagerGO.GetComponent<CustomSceneManager>();
         rm = SceneManagerGO.GetComponent<ResourceManager>();
 
         rm.FoodResource = StartingFoodResource;

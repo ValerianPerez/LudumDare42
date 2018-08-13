@@ -24,12 +24,12 @@ public class SlotController : MonoBehaviour
     /// <summary>
     /// The SceneManager of the scene
     /// </summary>
-    private SceneManager SceneManager;
+    private CustomSceneManager SceneManager;
 
     void Start()
     {
         CurrentState = SlotState.AVAILABLE;
-        SceneManager = GameObject.Find("SceneManager").GetComponent<SceneManager>();
+        SceneManager = GameObject.Find("SceneManager").GetComponent<CustomSceneManager>();
     }
 
     /// <summary>
