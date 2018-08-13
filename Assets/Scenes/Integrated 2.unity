@@ -778,17 +778,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StarshipCompartmentsGO: {fileID: 108077510}
   IsActive: 0
-  WaterResource: 1000
-  MaxWater: 0
+  WaterResource: 10000
+  MaxWater: 10000
   HumanResource: 0
   WaterSlider: {fileID: 1625419644}
   WaterTimer: {fileID: 1377080530}
-  BornPerSec: 0
-  DeadPerSec: 0
+  BornPerSec: 0.05
+  DeadPerSec: 0.04
   FoodProduction: 0
   FoodResource: 0
-  FoodConsumedPerPerson: 0.00012
-  FoodInsidePerson: 0
+  FoodConsumedPerPerson: 0.02
+  FoodInsidePerson: 10
   DeadCount: 0
   EatenHumans: 0
   MaxTotalResources: 0
