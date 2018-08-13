@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
+    /// <summary>
+    /// The different state of a plant
+    /// </summary>
+    public enum PlantState
+    {
+        SEED,
+        GROWING,
+        MATURE,
+        DYING,
+        DEAD,
+        SICK,
+        BURNING,
+        FROZEN
+    }
 
     /// <summary>
     /// Define if the item is grab
@@ -15,10 +29,27 @@ public class ItemController : MonoBehaviour
     /// </summary>
     private Animator Anim;
 
+    /// <summary>
+    /// The current state of the plant
+    /// </summary>
+    private PlantState CurrentState;
+
+    /// <summary>
+    /// The duration on mature stare
+    /// </summary>
+    [SerializeField]
+    private float MatureDuration;
+
+    /// <summary>
+    /// The current chrono
+    /// </summary>
+    private float Chrono;
+
     protected void Start()
     {
         Grab();
         Anim = GetComponent<Animator>();
+        CurrentState = PlantState.SEED;
     }
 
     // Update is called once per frame
@@ -29,6 +60,17 @@ public class ItemController : MonoBehaviour
             var screenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100); // 100 is the plane distance onthe UI canvas
             transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
             //transform.position = Input.mousePosition;
+        }
+
+        if (CurrentState.Equals(PlantState.MATURE) && Chrono < MatureDuration)
+        {
+            Chrono += Time.deltaTime;
+
+            if (Chrono > MatureDuration)
+            {
+                CurrentState = PlantState.DYING;
+                Anim.SetTrigger("isDying");
+            }
         }
     }
 
@@ -70,6 +112,31 @@ public class ItemController : MonoBehaviour
 
         transform.localPosition += new Vector3(0, yOffest, 0);
 
+        CurrentState = PlantState.GROWING;
         Anim.SetTrigger("isGrowing");
+    }
+
+    /// <summary>
+    /// Trigger when the growing animation end
+    /// </summary>
+    public void TriggerMature()
+    {
+        CurrentState = PlantState.MATURE;
+    }
+
+    /// <summary>
+    /// Trigger when the dying animation begin
+    /// </summary>
+    public void TriggerDying()
+    {
+        CurrentState = PlantState.DYING;
+    }
+
+    /// <summary>
+    /// Trigger when the dying animation end
+    /// </summary>
+    public void TriggerDead()
+    {
+        CurrentState = PlantState.DEAD;
     }
 }
