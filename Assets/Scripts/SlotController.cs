@@ -21,9 +21,15 @@ public class SlotController : MonoBehaviour
     /// </summary>
     public SlotState CurrentState;
 
+    /// <summary>
+    /// The SceneManager of the scene
+    /// </summary>
+    private SceneManager SceneManager;
+
     void Start()
     {
         CurrentState = SlotState.AVAILABLE;
+        SceneManager = GameObject.Find("SceneManager").GetComponent<SceneManager>();
     }
 
     /// <summary>
@@ -55,17 +61,47 @@ public class SlotController : MonoBehaviour
         switch (CurrentState)
         {
             case SlotState.AVAILABLE:
-                GameObject.Find("SceneManager").GetComponent<SceneManager>().ClickOnSlot(transform.position);
-                CurrentState = SlotState.OCCUPIED;
+                SceneManager.ClickOnFreeSlot(gameObject);
                 break;
             case SlotState.OCCUPIED:
+                SceneManager.ClickOnOccupiedSlot(gameObject);
                 break;
             case SlotState.FROZEN:
+                break;
+            case SlotState.BURRIED:
                 break;
             default:
                 break;
         }
+    }
 
-        DisplayState();
+    /// <summary>
+    /// The behaviour when the space is free
+    /// </summary>
+    public void FreeSpace()
+    {
+        switch (CurrentState)
+        {
+            case SlotState.AVAILABLE:
+                break;
+            case SlotState.OCCUPIED:
+                SceneManager.AddPlantResource(GetComponentInChildren<ItemController>().Harvest());
+                CurrentState = SlotState.AVAILABLE;
+                break;
+            case SlotState.FROZEN:
+                break;
+            case SlotState.BURRIED:
+                break;
+            default:
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Change the current state to PLANTING
+    /// </summary>
+    public void Planting()
+    {
+        CurrentState = SlotState.OCCUPIED;
     }
 }

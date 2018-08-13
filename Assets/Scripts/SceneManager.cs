@@ -6,6 +6,14 @@ using UnityEngine.UI;
 
 public class SceneManager : MonoBehaviour
 {
+    /// <summary>
+    /// The state of active item
+    /// </summary>
+    public enum ActiveItemState
+    {
+        FREE,
+        PLANTING
+    }
 
     public GraphicRaycaster m_Raycaster;
 
@@ -40,18 +48,23 @@ public class SceneManager : MonoBehaviour
     /// </summary>
     private ResourceManager rm;
 
+    private ActiveItemState CurrentState;
+
     void Start()
     {
         //Fetch the Event System from the Scene
         m_EventSystem = GetComponent<EventSystem>();
+
+        CurrentState = ActiveItemState.FREE;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && ActiveItem != null)
+        if (Input.GetMouseButtonDown(1) && !CurrentState.Equals(ActiveItemState.FREE))
         {
             Destroy(ActiveItem.gameObject);
+            CurrentState = ActiveItemState.FREE;
         }
     }
 
@@ -60,7 +73,7 @@ public class SceneManager : MonoBehaviour
     /// </summary>
     public void ClickOnPlant(string color)
     {
-        if (ActiveItem)
+        if (CurrentState.Equals(ActiveItemState.PLANTING))
         {
             Destroy(ActiveItem.gameObject);
         }
@@ -80,22 +93,53 @@ public class SceneManager : MonoBehaviour
         ActiveItem.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
 
         Slots.DisplayAvailability();
+
+        CurrentState = ActiveItemState.PLANTING;
     }
 
     /// <summary>
-    /// 
+    /// Function call when palyer clicks on free slot
     /// </summary>
-    /// <param name="position"></param>
-    public void ClickOnSlot(Vector2 position)
+    /// <param name="gameObject">The gameobject which contain the clicked button</param>
+    public void ClickOnFreeSlot(GameObject gameObject)
     {
-        if (!ActiveItem)
+        if (CurrentState.Equals(ActiveItemState.FREE))
         {
             return;
         }
 
         GameObject go = Instantiate(ActiveItem.gameObject, GameObject.FindGameObjectWithTag("Canvas").transform);
-        ActiveItem.ReleaseAt(position);
+        ActiveItem.ReleaseAt(gameObject);
         ActiveItem = go.GetComponent<ItemController>();
+
+        gameObject.GetComponent<SlotController>().Planting();
+    }
+
+    /// <summary>
+    /// Function call when palyer clicks on occupied slot
+    /// </summary>
+    /// <param name="gameObject">The gameobject which contain the clicked button</param>
+    public void ClickOnOccupiedSlot(GameObject gameObject)
+    {
+        switch (CurrentState)
+        {
+            case ActiveItemState.FREE:
+                gameObject.GetComponent<SlotController>().FreeSpace();
+                break;
+            case ActiveItemState.PLANTING:
+                break;
+            default:
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Add the amount of plant resources
+    /// </summary>
+    /// <param name="amount">The amount to add</param>
+    public void AddPlantResource(float amount)
+    {
+        Debug.Log(amount);
     }
 
     /// <summary>

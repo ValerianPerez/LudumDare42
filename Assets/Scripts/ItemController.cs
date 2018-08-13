@@ -45,6 +45,11 @@ public class ItemController : MonoBehaviour
     /// </summary>
     private float Chrono;
 
+    /// <summary>
+    /// The amount of ressources gets when harvesting, multiply by a growth factor
+    /// </summary>
+    public float HarvestAmount;
+
     protected void Start()
     {
         Grab();
@@ -68,7 +73,6 @@ public class ItemController : MonoBehaviour
 
             if (Chrono > MatureDuration)
             {
-                CurrentState = PlantState.DYING;
                 Anim.SetTrigger("isDying");
             }
         }
@@ -102,18 +106,27 @@ public class ItemController : MonoBehaviour
     /// Release the object at the specified position
     /// </summary>
     /// <param name="position"></param>
-    public void ReleaseAt(Vector2 position)
+    public void ReleaseAt(GameObject gameObject)
     {
         Release();
 
         float yOffest = GetComponent<RectTransform>().sizeDelta.x / 2;
 
-        transform.position = position;
+        transform.position = gameObject.transform.position;
 
         transform.localPosition += new Vector3(0, yOffest, 0);
 
-        CurrentState = PlantState.GROWING;
         Anim.SetTrigger("isGrowing");
+
+        transform.SetParent(gameObject.transform);
+    }
+
+    /// <summary>
+    /// Trigger when the growing animation begin
+    /// </summary>
+    public void TriggerGrowing()
+    {
+        CurrentState = PlantState.GROWING;
     }
 
     /// <summary>
@@ -138,5 +151,43 @@ public class ItemController : MonoBehaviour
     public void TriggerDead()
     {
         CurrentState = PlantState.DEAD;
+    }
+
+    public float Harvest()
+    {
+
+        switch (CurrentState)
+        {
+            case PlantState.SEED:
+                HarvestAmount = 0;
+                break;
+            case PlantState.GROWING:
+                HarvestAmount *= .1f;
+                break;
+            case PlantState.MATURE:
+                HarvestAmount *= 2;
+                break;
+            case PlantState.DYING:
+                HarvestAmount = 0;
+                break;
+            case PlantState.DEAD:
+                HarvestAmount = 0;
+                break;
+            case PlantState.SICK:
+                HarvestAmount = 0;
+                break;
+            case PlantState.BURNING:
+                HarvestAmount = 0;
+                break;
+            case PlantState.FROZEN:
+                HarvestAmount = 0;
+                break;
+            default:
+                break;
+        }
+
+        Destroy(gameObject, .05f);
+
+        return HarvestAmount;
     }
 }
