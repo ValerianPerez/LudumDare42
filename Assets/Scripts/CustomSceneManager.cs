@@ -201,6 +201,7 @@ public class CustomSceneManager : MonoBehaviour
     /// </summary>
     public void WinTheGame()
     {
+        NavigationUI.SetActive(false);
         MenuUI.GetComponent<MenuManager>().Win();
     }
 
@@ -209,6 +210,7 @@ public class CustomSceneManager : MonoBehaviour
     /// </summary>
     public void LoseTheGame()
     {
+        NavigationUI.SetActive(false);
         MenuUI.GetComponent<MenuManager>().GameOver();
     }
 }
