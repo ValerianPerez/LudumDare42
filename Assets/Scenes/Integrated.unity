@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: 1781859627}
   - component: {fileID: 1781859626}
   - component: {fileID: 1781859625}
+  - component: {fileID: 1781859628}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -527,3 +528,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1781859628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1781859624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc48874e998c6643a262689b6477e32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prevTime: 0
+  _guitarClip: {fileID: 8300000, guid: ce405459d494afb45b97e4693fe6b036, type: 3}
+  _bassClip: {fileID: 8300000, guid: 8476c0a16dabb9b40bd5823f7b353541, type: 3}
+  _elecG1Clip: {fileID: 8300000, guid: 6eddd8939d3f24e4d9aa6aeddf7f27ca, type: 3}
+  _elecG2Clip: {fileID: 8300000, guid: a9ea402bd5194be4cb582529cef9be59, type: 3}
