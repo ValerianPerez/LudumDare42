@@ -266,7 +266,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1867488399264314, guid: c6b94dfe2d247ff41a993d4fc02ecb75, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114310805693193162, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
         type: 2}
@@ -788,7 +788,9 @@ MonoBehaviour:
   FoodProduction: 0
   FoodResource: 0
   FoodConsumedPerPerson: 0.00012
+  FoodInsidePerson: 0
   DeadCount: 0
+  EatenHumans: 0
   MaxTotalResources: 0
 --- !u!114 &1781859626
 MonoBehaviour:
