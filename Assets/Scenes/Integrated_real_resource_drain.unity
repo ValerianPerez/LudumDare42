@@ -162,12 +162,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &861333723 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114339918694843054, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1456353271}
-  m_Script: {fileID: 11500000, guid: 416afb034b264a6488053ac154cdf77f, type: 3}
 --- !u!1 &1197062859
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,12 +342,7 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 223142691194040330, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1197062861}
-    - target: {fileID: 114634310887692704, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
+    - target: {fileID: 114015775305150908, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -363,26 +352,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1781859626}
-    - target: {fileID: 114015775305150908, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
+    - target: {fileID: 114634310887692704, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1781859626}
-    - target: {fileID: 114509892268663936, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
+    - target: {fileID: 223142691194040330, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
         type: 2}
-      propertyPath: m_MaxValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114509892268663936, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
-        type: 2}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224345823371459980, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1197062861}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2f0d57eacf37ef42ae6b6a353d13ed9, type: 2}
   m_IsPrefabAsset: 0
@@ -454,12 +433,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1642317141 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114660327867823146, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1456353271}
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!224 &1642317144 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224534160382845892, guid: b2f0d57eacf37ef42ae6b6a353d13ed9,
@@ -519,8 +492,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3689041a8e86262499f3022120c35e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Raycaster: {fileID: 1642317141}
   GameCanvas: {fileID: 1642317144}
+  NavigationUI: {fileID: 0}
+  LandingUI: {fileID: 0}
   FrozenDeadPlant: {fileID: 1050504440522328, guid: f2c38f70e80cc6342b8b288204df4e6a,
     type: 2}
   FrozenPlant: {fileID: 1336972532980830, guid: f05e4d03ea31dd44db9911d4eae2f643,
@@ -530,7 +504,6 @@ MonoBehaviour:
   RadioactivePlant: {fileID: 1222257172909420, guid: 334a5061ac8d8f2448da361497deefc8,
     type: 2}
   SickPlant: {fileID: 1754742350307242, guid: ab0ff30c4b4031249a8202cccb9832a5, type: 2}
-  Slots: {fileID: 861333723}
 --- !u!4 &1781859627
 Transform:
   m_ObjectHideFlags: 0
