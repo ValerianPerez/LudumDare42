@@ -494,6 +494,11 @@ Prefab:
       propertyPath: m_TagString
       value: Slot
       objectReference: {fileID: 0}
+    - target: {fileID: 114411067566048648, guid: 736c1e6b313cce249ba1f632843b2604,
+        type: 2}
+      propertyPath: m_MaxValue
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 736c1e6b313cce249ba1f632843b2604, type: 2}
   m_IsPrefabAsset: 0

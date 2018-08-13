@@ -198,6 +198,7 @@ public class CustomSceneManager : MonoBehaviour
         {
             slot.GetComponent<SlotController>().CurrentState = SlotController.SlotState.AVAILABLE;
         }
+        
     }
 
     /// <summary>
@@ -208,6 +209,11 @@ public class CustomSceneManager : MonoBehaviour
         rm.IsActive = false;
         LandingUI.SetActive(false);
         NavigationUI.SetActive(true);
+        if (!CurrentState.Equals(ActiveItemState.FREE))
+        {
+            Destroy(ActiveItem.gameObject);
+            CurrentState = ActiveItemState.FREE;
+        }
     }
 
     /// <summary>
