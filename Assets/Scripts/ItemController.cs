@@ -10,9 +10,15 @@ public class ItemController : MonoBehaviour
     /// </summary>
     public bool IsGrab { get; set; }
 
+    /// <summary>
+    /// The animator of object
+    /// </summary>
+    private Animator Anim;
+
     protected void Start()
     {
         Grab();
+        Anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,7 +45,6 @@ public class ItemController : MonoBehaviour
     /// </summary>
     public void Grab()
     {
-        Debug.Log("Grabbing " + name);
         IsGrab = true;
     }
 
@@ -58,7 +63,13 @@ public class ItemController : MonoBehaviour
     public void ReleaseAt(Vector2 position)
     {
         Release();
+
+        float yOffest = GetComponent<RectTransform>().sizeDelta.x / 2;
+
         transform.position = position;
-        Debug.Log("releasing " + name);
+
+        transform.localPosition += new Vector3(0, yOffest, 0);
+
+        Anim.SetTrigger("isGrowing");
     }
 }
