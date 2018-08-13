@@ -75,6 +75,7 @@ public class Planet : MonoBehaviour
         {
             //================================================================
             // Put win or losing condition here when palyer arrive to homeland
+            GameObject.Find("SceneManager").GetComponent<CustomSceneManager>().WinTheGame();
             //================================================================            
             Debug.Log("game win");
         }

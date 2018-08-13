@@ -28,6 +28,11 @@ public class CustomSceneManager : MonoBehaviour
     public GameObject LandingUI;
 
     /// <summary>
+    /// The UI to display when option button is pressed
+    /// </summary>
+    public GameObject MenuUI;
+
+    /// <summary>
     /// Different plants
     /// </summary>
     public GameObject FrozenDeadPlant;
@@ -179,5 +184,21 @@ public class CustomSceneManager : MonoBehaviour
     {
         LandingUI.SetActive(false);
         NavigationUI.SetActive(true);
+    }
+
+    /// <summary>
+    /// Win the game and display final screen
+    /// </summary>
+    public void WinTheGame()
+    {
+        MenuUI.GetComponent<MenuManager>().Win();
+    }
+
+    /// <summary>
+    /// Lose the game and display final screen
+    /// </summary>
+    public void LoseTheGame()
+    {
+        MenuUI.GetComponent<MenuManager>().GameOver();
     }
 }
