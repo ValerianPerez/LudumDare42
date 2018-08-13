@@ -183,7 +183,6 @@ public class CustomSceneManager : MonoBehaviour
         rm.ConsumeResourcesForTime(DefaultTravelTime);
         rm.IsActive = true;
         NavigationUI.SetActive(false);
-        rm.IsActive = true;
     }
 
     /// <summary>
@@ -201,7 +200,7 @@ public class CustomSceneManager : MonoBehaviour
     /// </summary>
     public void WinTheGame()
     {
-        NavigationUI.SetActive(false);
+        LandingUI.SetActive(false);
         MenuUI.GetComponent<MenuManager>().Win();
     }
 
@@ -210,7 +209,8 @@ public class CustomSceneManager : MonoBehaviour
     /// </summary>
     public void LoseTheGame()
     {
-        NavigationUI.SetActive(false);
+        LandingUI.SetActive(false);
+        Debug.Log("---------------------- GAME OVER -------------------");
         MenuUI.GetComponent<MenuManager>().GameOver();
     }
 }

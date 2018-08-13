@@ -163,7 +163,7 @@ public class Planet : MonoBehaviour
     public string GetName() { return myPlanet.getName(); }
 
     public double GetTemperature() { return myPlanet.getTemperature(); }
-    public double GetRadiation() { return myPlanet.getRadiation(); }
+    public float GetRadiation() { return myPlanet.getRadiation(); }
     public float GetWaterMultiplier() { return myPlanet.getCoeficienEau(); }
     public double GetDisasterFrequency() { return myPlanet.getVitesseDesastre(); }   
 
@@ -182,7 +182,7 @@ public class Planet : MonoBehaviour
         PlanetType planetType;
         string name; // Nom de la planète
         double temperature; // Temperature de la planete
-        double radiation; // Niveau de radiation de la planete
+        float radiation; // Niveau de radiation de la planete
         float coeficienEau; // Coeficien de remplissage des ressources en eau
         double vitesseDesastre; // Influe sur la vitesse d'apparition des desastres
 
@@ -212,7 +212,7 @@ public class Planet : MonoBehaviour
             return this.temperature;
         }
 
-        public double getRadiation()
+        public float getRadiation()
         {
             return this.radiation;
         }
@@ -295,13 +295,16 @@ public class Planet : MonoBehaviour
         }
 
         // Détermine la radiation de départ d'une planète
-        public double getDepartRadiation()
+        public float getDepartRadiation()
         {
-            double rad = 0;
+            float rad = 0;
 
             if (type == RADIOACTIVE_PLANET)
             {
-                rad = Random.Range(1, 5);
+                rad = Random.Range(3, 5);
+            } else
+            {
+                rad = Random.Range(1, 3);
             }
 
             return rad;

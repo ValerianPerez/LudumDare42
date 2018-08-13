@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -139,5 +140,10 @@ public class ResourceManager : MonoBehaviour
     void ManageFood(float time)
     {
         FoodResource -= HumanResource * FoodConsumedPerPerson * time;
+    }
+
+    internal void DestroyCompartments(int destroyed)
+    {
+        StarshipCompartmentsGO.GetComponent<SpaceshipCompartments>().damaged_count += destroyed;
     }
 }
