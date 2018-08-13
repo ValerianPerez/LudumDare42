@@ -791,12 +791,12 @@ MonoBehaviour:
   HumanResource: 0
   WaterSlider: {fileID: 1625419644}
   WaterTimer: {fileID: 1377080530}
-  BornPerSec: 0.01
-  DeadPerSec: 0.005
+  BornPerSec: 0.02
+  DeadPerSec: 0.01
   FoodProduction: 0
   FoodResource: 0
-  FoodConsumedPerPerson: 0.022
-  FoodInsidePerson: 0.15
+  FoodConsumedPerPerson: 0.025
+  FoodInsidePerson: 0.1
   DeadCount: 0
   EatenHumans: 0
   MaxTotalResources: 0
@@ -814,7 +814,7 @@ MonoBehaviour:
   GameCanvas: {fileID: 1642317144}
   NavigationUI: {fileID: 1239018904}
   LandingUI: {fileID: 1730174121}
-  MenuUI: {fileID: 0}
+  MenuUI: {fileID: 1795314275}
   FrozenDeadPlant: {fileID: 1050504440522328, guid: f2c38f70e80cc6342b8b288204df4e6a,
     type: 2}
   FrozenPlant: {fileID: 1336972532980830, guid: f05e4d03ea31dd44db9911d4eae2f643,
@@ -855,6 +855,11 @@ MonoBehaviour:
   _bassClip: {fileID: 8300000, guid: 8476c0a16dabb9b40bd5823f7b353541, type: 3}
   _elecG1Clip: {fileID: 8300000, guid: 6eddd8939d3f24e4d9aa6aeddf7f27ca, type: 3}
   _elecG2Clip: {fileID: 8300000, guid: a9ea402bd5194be4cb582529cef9be59, type: 3}
+--- !u!1 &1795314275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1574501382573282, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
+    type: 2}
+  m_PrefabInternal: {fileID: 973709336}
 --- !u!1 &1938414077
 GameObject:
   m_ObjectHideFlags: 0

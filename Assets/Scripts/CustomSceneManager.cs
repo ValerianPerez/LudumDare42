@@ -183,7 +183,7 @@ public class CustomSceneManager : MonoBehaviour
         rm.ConsumeResourcesForTime(DefaultTravelTime);
         rm.IsActive = true;
         NavigationUI.SetActive(false);
-        rm.IsActive = true;
+       // rm.DestroyCompartments(planet.GetRadiation())
     }
 
     /// <summary>
@@ -209,6 +209,7 @@ public class CustomSceneManager : MonoBehaviour
     /// </summary>
     public void LoseTheGame()
     {
+        Debug.Log("---------------------- GAME oVER -------------------");
         MenuUI.GetComponent<MenuManager>().GameOver();
     }
 }
