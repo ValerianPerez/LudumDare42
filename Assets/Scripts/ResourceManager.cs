@@ -144,6 +144,6 @@ public class ResourceManager : MonoBehaviour
 
     internal void DestroyCompartments(int destroyed)
     {
-        StarshipCompartmentsGO.GetComponent<SpaceshipCompartments>().damaged_count = destroyed;
+        StarshipCompartmentsGO.GetComponent<SpaceshipCompartments>().damaged_count += destroyed;
     }
 }
