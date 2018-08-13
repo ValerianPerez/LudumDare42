@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SceneManager : MonoBehaviour
+public class CustomSceneManager : MonoBehaviour
 {
     /// <summary>
     /// The state of active item

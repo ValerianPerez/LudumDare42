@@ -62,7 +62,7 @@ public class Planet : MonoBehaviour
             {
                 //================================================================
                 // Put here code to land on the planet
-                GameObject.Find("SceneManager").GetComponent<SceneManager>().TravelTo(this);
+                GameObject.Find("SceneManager").GetComponent<CustomSceneManager>().TravelTo(this);
                 //================================================================
                 
                 Debug.Log("land");

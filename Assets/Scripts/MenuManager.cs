@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
 
@@ -18,6 +19,16 @@ public class MenuManager : MonoBehaviour {
     /// The main title UI
     /// </summary>
     public GameObject MainTitle;
+
+    /// <summary>
+    /// The Game Over Screen
+    /// </summary>
+    public GameObject GameOverScreen;
+
+    /// <summary>
+    /// The standard social thanks screen
+    /// </summary>
+    public GameObject ThxScreen;
 
     /// <summary>
     /// Defines if the options are displayed or not
@@ -48,5 +59,31 @@ public class MenuManager : MonoBehaviour {
     {
         MainTitle.SetActive(false);
         MenuButton.SetActive(true);
+    }
+
+    /// <summary>
+    /// Display the GameOver screen
+    /// </summary>
+    public void GameOver()
+    {
+        MenuUI.SetActive(false);
+        GameOverScreen.SetActive(true);
+    }
+
+    /// <summary>
+    /// Display the thanks screen
+    /// </summary>
+    public void Win()
+    {
+        MenuUI.SetActive(false);
+        ThxScreen.SetActive(true);
+    }
+
+    /// <summary>
+    /// Restart the current scene
+    /// </summary>
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
