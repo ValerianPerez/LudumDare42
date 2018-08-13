@@ -81,9 +81,13 @@ public class ItemController : MonoBehaviour
 
     public void SoDryIWantToDie()
     {
-        Anim.SetTrigger("isDying");
-        Chrono = MatureDuration + 1;
-        HarvestAmount = 0;
+        if (!IsPlanted)
+        {
+            Anim.SetTrigger("isDying");
+            Chrono = MatureDuration + 1;
+            HarvestAmount = 0;
+        }
+        
     }
 
     /// <summary>
