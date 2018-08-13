@@ -184,6 +184,20 @@ public class CustomSceneManager : MonoBehaviour
         rm.IsActive = true;
         NavigationUI.SetActive(false);
         rm.DestroyCompartments(Mathf.RoundToInt(planet.GetRadiation()));
+        GameObject[] plants = GameObject.FindGameObjectsWithTag("Plant");
+        foreach (GameObject plant in plants)
+        {
+            if (plant.GetComponent<ItemController>().IsPlanted)
+            {
+                Destroy(plant);
+            }
+            
+        }
+        GameObject[]  Slots = GameObject.FindGameObjectsWithTag("Slot");
+        foreach (GameObject slot in Slots)
+        {
+            slot.GetComponent<SlotController>().CurrentState = SlotController.SlotState.AVAILABLE;
+        }
     }
 
     /// <summary>

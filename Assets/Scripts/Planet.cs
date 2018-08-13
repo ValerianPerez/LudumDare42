@@ -317,11 +317,11 @@ public class Planet : MonoBehaviour
 
             if (type == BURNING_PLANET || type == DESERT_PLANET)
             {
-                coef = Random.Range(0.5f, 0.8f);
+                coef = Random.Range(0.2f, 0.5f);
             }
             else if (type == FROZEN_PLANET || type == LOW_WATER_PLANET)
             {
-                coef = 0;
+                coef = Random.Range(0.4f, 0.6f);
             }
             else
             {

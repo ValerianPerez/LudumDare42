@@ -135,6 +135,7 @@ public class ResourceManager : MonoBehaviour
             EatenHumans += humans_to_be_eaten;
             FoodResource = 0;
         }
+        DeadCount += EatenHumans;
     }
 
     void ManageFood(float time)
