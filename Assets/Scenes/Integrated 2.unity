@@ -264,59 +264,22 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1867488399264314, guid: c6b94dfe2d247ff41a993d4fc02ecb75, type: 2}
+    - target: {fileID: 1321379461782896, guid: c6b94dfe2d247ff41a993d4fc02ecb75, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114310805693193162, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
-        type: 2}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114310805693193162, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
-        type: 2}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114310805693193162, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
-        type: 2}
-      propertyPath: m_Text
-      value: "Audouin Kelly (Artist & Developper)\nL\xE9v\xEAque Hugo (Developper
-        & Sound Designer)\nPerez Pascal (Artist & Sound Designer)\nPerez Val\xE9rian
-        (Developper)\nRucar Aur\xE9lien (Developper)\nZyla Wojciech (Developper)\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 224597481581048322, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -177.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 224597481581048322, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 354.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 114310805693193162, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
-        type: 2}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 224597481581048322, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224597481581048322, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 872.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1574501382573282, guid: c6b94dfe2d247ff41a993d4fc02ecb75, type: 2}
+    - target: {fileID: 1095115151808768, guid: c6b94dfe2d247ff41a993d4fc02ecb75, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b94dfe2d247ff41a993d4fc02ecb75, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &973709337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1574501382573282, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
+    type: 2}
+  m_PrefabInternal: {fileID: 973709336}
 --- !u!1001 &1105814582
 Prefab:
   m_ObjectHideFlags: 0
@@ -414,7 +377,7 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114212999177487268, guid: 736c1e6b313cce249ba1f632843b2604,
+    - target: {fileID: 114206039049023276, guid: 736c1e6b313cce249ba1f632843b2604,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -424,7 +387,7 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1781859626}
-    - target: {fileID: 114206039049023276, guid: 736c1e6b313cce249ba1f632843b2604,
+    - target: {fileID: 114212999177487268, guid: 736c1e6b313cce249ba1f632843b2604,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -434,6 +397,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1781859626}
+    - target: {fileID: 1336621021412234, guid: 736c1e6b313cce249ba1f632843b2604, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 736c1e6b313cce249ba1f632843b2604, type: 2}
   m_IsPrefabAsset: 0
@@ -621,10 +588,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1375028867416610, guid: 08dccbab530b2d347baa128593cfd0cf, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08dccbab530b2d347baa128593cfd0cf, type: 2}
   m_IsPrefabAsset: 0
@@ -787,12 +750,12 @@ MonoBehaviour:
   HumanResource: 0
   WaterSlider: {fileID: 1625419644}
   WaterTimer: {fileID: 1377080530}
-  BornPerSec: 0.02
-  DeadPerSec: 0.01
+  BornPerSec: 0.01
+  DeadPerSec: 0.005
   FoodProduction: 0
   FoodResource: 0
-  FoodConsumedPerPerson: 0.025
-  FoodInsidePerson: 0.1
+  FoodConsumedPerPerson: 0.022
+  FoodInsidePerson: 0.15
   DeadCount: 0
   EatenHumans: 0
   MaxTotalResources: 0
@@ -810,7 +773,7 @@ MonoBehaviour:
   GameCanvas: {fileID: 1642317144}
   NavigationUI: {fileID: 1239018904}
   LandingUI: {fileID: 1730174121}
-  MenuUI: {fileID: 1795314275}
+  MenuUI: {fileID: 973709337}
   FrozenDeadPlant: {fileID: 1050504440522328, guid: f2c38f70e80cc6342b8b288204df4e6a,
     type: 2}
   FrozenPlant: {fileID: 1336972532980830, guid: f05e4d03ea31dd44db9911d4eae2f643,
@@ -851,11 +814,6 @@ MonoBehaviour:
   _bassClip: {fileID: 8300000, guid: 8476c0a16dabb9b40bd5823f7b353541, type: 3}
   _elecG1Clip: {fileID: 8300000, guid: 6eddd8939d3f24e4d9aa6aeddf7f27ca, type: 3}
   _elecG2Clip: {fileID: 8300000, guid: a9ea402bd5194be4cb582529cef9be59, type: 3}
---- !u!1 &1795314275 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1574501382573282, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
-    type: 2}
-  m_PrefabInternal: {fileID: 973709336}
 --- !u!1 &1938414077
 GameObject:
   m_ObjectHideFlags: 0

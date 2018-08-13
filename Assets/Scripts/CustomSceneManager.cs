@@ -215,6 +215,7 @@ public class CustomSceneManager : MonoBehaviour
     /// </summary>
     public void WinTheGame()
     {
+        LandingUI.SetActive(false);
         MenuUI.GetComponent<MenuManager>().Win();
     }
 
@@ -223,7 +224,8 @@ public class CustomSceneManager : MonoBehaviour
     /// </summary>
     public void LoseTheGame()
     {
-        Debug.Log("---------------------- GAME oVER -------------------");
+        LandingUI.SetActive(false);
+        Debug.Log("---------------------- GAME OVER -------------------");
         MenuUI.GetComponent<MenuManager>().GameOver();
     }
 }

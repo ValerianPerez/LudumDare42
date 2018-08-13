@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MenuManager : MonoBehaviour {
+public class MenuManager : MonoBehaviour
+{
 
     /// <summary>
     /// The button to access to options
@@ -30,6 +31,11 @@ public class MenuManager : MonoBehaviour {
     /// The standard social thanks screen
     /// </summary>
     public GameObject ThxScreen;
+
+    /// <summary>
+    /// The winner screen
+    /// </summary>
+    public GameObject WinnerScreen;
 
     /// <summary>
     /// Defines if the options are displayed or not
@@ -68,18 +74,39 @@ public class MenuManager : MonoBehaviour {
     public void GameOver()
     {
         MenuUI.SetActive(false);
+        
         GameOverScreen.SetActive(true);
 
         string bodyCount = GameObject.Find("SceneManager").GetComponent<ResourceManager>().DeadCount.ToString("0");
-        GameOverScreen.GetComponentInChildren<Text>().text = "The last " + bodyCount + " persons of your civilisation are dead. \nYou are alone. And now ?";
+        GameOverScreen.GetComponentInChildren<Text>().text = "The last " + bodyCount + " persons of your civilization are dead. \nYou are alone. And now ?";
+    }
+
+    /// <summary>
+    /// Display the resume screen
+    /// </summary>
+    public void Win()
+    {
+        MenuUI.SetActive(false);
+        WinnerScreen.SetActive(true);
+
+        ResourceManager rm = GameObject.Find("SceneManager").GetComponent<ResourceManager>();
+
+        string savedLifes = rm.HumanResource.ToString("0");
+
+        WinnerScreen.GetComponentInChildren<Text>().text = "Congratulations !\nYou saved the last " + savedLifes + " persons of your civilization !";
+
+        if (rm.EatenHumans != 0)
+        {
+            WinnerScreen.GetComponentInChildren<Text>().text += "\nUnfortunately, people have eaten " + rm.EatenHumans.ToString("0")+ " other persons to survive...";
+        }
     }
 
     /// <summary>
     /// Display the thanks screen
     /// </summary>
-    public void Win()
+    public void ContinueWin()
     {
-        MenuUI.SetActive(false);
+        WinnerScreen.SetActive(false);
         ThxScreen.SetActive(true);
     }
 
