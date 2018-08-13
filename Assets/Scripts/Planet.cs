@@ -15,7 +15,8 @@ public class Planet : MonoBehaviour
     public Sprite[] template;
     public planetManager sm;
     private int planetIndex;
-    private Transform textTr;
+    private Transform textTr_planet;
+    private Transform textTr_travel;
 
     //<summary>
     // The current planet
@@ -29,11 +30,11 @@ public class Planet : MonoBehaviour
                 
         this.canvas = this.gameObject.GetComponentInParent<Canvas>();
 
-        this.textTr = this.canvas.transform.Find("Text_info_planete");
-        this.infoPlanete = textTr.GetComponent<Text>();
+        this.textTr_planet = this.canvas.transform.Find("Text_info_planete");
+        this.infoPlanete = textTr_planet.GetComponent<Text>();
 
-        textTr = this.canvas.transform.Find("Text_info_travel");
-        this.infoTravel = textTr.GetComponent<Text>();
+        this.textTr_travel = this.canvas.transform.Find("Text_info_travel");
+        this.infoTravel = textTr_travel.GetComponent<Text>();
 
     }
 
@@ -45,8 +46,8 @@ public class Planet : MonoBehaviour
 
     public void generatePlanet()
     {
-
-        if ((sm.listeVisited[this.planetIndex - 1] == true && sm.listeVisited[this.planetIndex] == false) || this.planetIndex == 1)
+        
+        if (((sm.listeVisited[this.planetIndex - 1] == true && sm.listeVisited[this.planetIndex] == false) || (this.planetIndex == 1 && sm.listeVisited[this.planetIndex] == false)) && this.planetIndex != 9)
         {
             //Si la planète n'a pas déjà été générée on la génère
             if (this.myPlanet == null)
@@ -54,10 +55,27 @@ public class Planet : MonoBehaviour
                 this.myPlanet = new MyPlanet();
                 this.changePlanetSkin(myPlanet.getPlanetType().getType());
                 this.getPlanetInfo();
+                this.infoTravel.text = "You are here\nClick on the planet to land";
+                
             }
+            else
+            {
+                //================================================================
+                // Put here code to land on the planet
+                //================================================================
+                
+                Debug.Log("land");
 
-            sm.listeVisited[this.planetIndex] = true;
-            getPlanetInfo();
+                // La planète a été visité 
+                sm.listeVisited[this.planetIndex] = true;
+            }           
+            
+        }else if (sm.listeVisited[this.planetIndex - 1] == true && this.planetIndex == 9)
+        {
+            //================================================================
+            // Put win or losing condition here when palyer arrive to homeland
+            //================================================================            
+            Debug.Log("game win");
         }
 
         
@@ -77,11 +95,11 @@ public class Planet : MonoBehaviour
     public void getPlanetInfo()
     {
         this.canvas = this.gameObject.GetComponentInParent<Canvas>();
-        this.textTr = this.canvas.transform.Find("Text_info_planete");
-        this.infoPlanete = textTr.GetComponent<Text>();
+        this.textTr_planet = this.canvas.transform.Find("Text_info_planete");
+        this.infoPlanete = textTr_planet.GetComponent<Text>();
 
-        this.textTr = this.canvas.transform.Find("Text_info_travel");
-        this.infoTravel = textTr.GetComponent<Text>();
+        this.textTr_travel = this.canvas.transform.Find("Text_info_travel");
+        this.infoTravel = textTr_travel.GetComponent<Text>();
 
         if (this.myPlanet != null)
         {
@@ -102,13 +120,17 @@ public class Planet : MonoBehaviour
             
         }
 
-        if (sm.listeVisited[this.planetIndex - 1] == true && sm.listeVisited[this.planetIndex] == false)
+        if (sm.listeVisited[this.planetIndex - 1] == true && sm.listeVisited[this.planetIndex] == false && this.myPlanet == null)
         {
             this.infoTravel.text = "You Can travel to this planet";
 
-        }else if (sm.listeVisited[this.planetIndex] == true && sm.listeVisited[this.planetIndex + 1] == false)
+        }else if (sm.listeVisited[this.planetIndex - 1] == true && sm.listeVisited[this.planetIndex] == false && this.myPlanet != null)
         {
-            this.infoTravel.text = "You are here";
+            this.infoTravel.text = "You are here\nClick on the planet to land";
+        }
+        else if (sm.listeVisited[this.planetIndex] == true)
+        {
+            this.infoTravel.text = "You can't return to this planet";
         }
         else
         {

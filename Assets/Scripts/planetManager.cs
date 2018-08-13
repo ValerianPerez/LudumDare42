@@ -26,7 +26,7 @@ public class planetManager : MonoBehaviour
         }
 
         listeVisited[0] = true;
-        listeVisited[1] = true;
+        //listeVisited[1] = true;
 
         planete1.GetComponent<Planet>().setPlanetIndex(1);
         planete2.GetComponent<Planet>().setPlanetIndex(2);
