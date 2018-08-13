@@ -129,7 +129,7 @@ public class ResourceManager : MonoBehaviour
         DeadCount += DeadPerSec * HumanResource * time;
         if (FoodResource < 0)
         {
-            float humans_to_be_eaten = -FoodResource / FoodInsidePerson;
+            float humans_to_be_eaten = Mathf.Ceil( -FoodResource / FoodInsidePerson);
             HumanResource -= humans_to_be_eaten;
             EatenHumans += humans_to_be_eaten;
             FoodResource = 0;
