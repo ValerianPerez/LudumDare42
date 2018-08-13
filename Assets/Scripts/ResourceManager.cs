@@ -40,7 +40,9 @@ public class ResourceManager : MonoBehaviour
     public float FoodProduction;
     public float FoodResource;
     public float FoodConsumedPerPerson;
+    public float FoodInsidePerson; // how much is in those who draw the short straw
     public double DeadCount;
+    public double EatenHumans;
     public float MaxTotalResources;
 
 
@@ -109,7 +111,14 @@ public class ResourceManager : MonoBehaviour
     void ManagePeople()
     {
         HumanResource += (BornPerSec - DeadPerSec) * HumanResource * Time.deltaTime;
-        DeadCount += DeadPerSec * Time.deltaTime;
+        DeadCount += DeadPerSec * HumanResource * Time.deltaTime;
+        if (FoodResource < 0)
+        {
+            float humans_to_be_eaten = -FoodResource / FoodInsidePerson;
+            HumanResource -= humans_to_be_eaten;
+            EatenHumans += humans_to_be_eaten;
+            FoodResource = 0;
+        }
     }
 
     void ManageFood()

@@ -22,7 +22,7 @@ public class ItemController : MonoBehaviour
     /// <summary>
     /// Define if the item is grab
     /// </summary>
-    public bool IsGrab { get; set; }
+    public bool IsPlanted { get; set; }
 
     /// <summary>
     /// The animator of object
@@ -54,7 +54,6 @@ public class ItemController : MonoBehaviour
 
     protected void Start()
     {
-        Grab();
         Anim = GetComponent<Animator>();
         CurrentState = PlantState.SEED;
     }
@@ -62,7 +61,7 @@ public class ItemController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (IsGrab)
+        if (!IsPlanted)
         {
             var screenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100); // 100 is the plane distance onthe UI canvas
             transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
@@ -100,7 +99,7 @@ public class ItemController : MonoBehaviour
     /// </summary>
     public void Grab()
     {
-        IsGrab = true;
+        IsPlanted = false;
     }
 
     /// <summary>
@@ -108,7 +107,7 @@ public class ItemController : MonoBehaviour
     /// </summary>
     public void Release()
     {
-        IsGrab = false;
+        IsPlanted = true;
     }
 
     /// <summary>
@@ -203,7 +202,7 @@ public class ItemController : MonoBehaviour
 
     public float GetWaterDrain()
     {
-        if (IsGrab)
+        if (!IsPlanted)
         {
             return 0f;
         }
