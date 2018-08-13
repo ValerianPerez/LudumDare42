@@ -304,7 +304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1367353001378488
 GameObject:
   m_ObjectHideFlags: 1
@@ -1121,7 +1121,7 @@ MonoBehaviour:
   resource_per_compartment: 100
   Humans: 0
   Food: 0
-  damaged_count: 5
+  damaged_count: 0
   repair_speed: 1
   repairing: 0
   repair_missing: 0
