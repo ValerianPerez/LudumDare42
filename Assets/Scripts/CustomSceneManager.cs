@@ -183,6 +183,7 @@ public class CustomSceneManager : MonoBehaviour
         rm.ConsumeResourcesForTime(DefaultTravelTime);
         rm.IsActive = true;
         NavigationUI.SetActive(false);
+        rm.IsActive = true;
     }
 
     /// <summary>
