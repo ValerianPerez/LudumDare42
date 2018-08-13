@@ -92,6 +92,7 @@ public class SceneManager : MonoBehaviour
         {
             return;
         }
+
         GameObject go = Instantiate(ActiveItem.gameObject, GameObject.FindGameObjectWithTag("Canvas").transform);
         ActiveItem.ReleaseAt(position);
         ActiveItem = go.GetComponent<ItemController>();
