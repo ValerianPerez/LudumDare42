@@ -14,14 +14,18 @@ public class SceneManager : MonoBehaviour
         FREE,
         PLANTING
     }
-
-    public GraphicRaycaster m_Raycaster;
-
-    PointerEventData m_PointerEventData;
-
-    EventSystem m_EventSystem;
-
+    
     public Transform GameCanvas;
+
+    /// <summary>
+    /// The Navigation UI
+    /// </summary>
+    public GameObject NavigationUI;
+
+    /// <summary>
+    /// The UI to display when landing
+    /// </summary>
+    public GameObject LandingUI;
 
     /// <summary>
     /// Different plants
@@ -37,25 +41,27 @@ public class SceneManager : MonoBehaviour
     /// </summary>
     private ItemController ActiveItem;
 
-    /// <summary>
-    /// The manager of slots
-    /// </summary>
-    [SerializeField]
-    private SlotManager Slots;
 
     /// <summary>
     /// The resource manager
     /// </summary>
     private ResourceManager rm;
 
+    /// <summary>
+    /// The state of cursor
+    /// </summary>
     private ActiveItemState CurrentState;
+
+    /// <summary>
+    /// The current displaying UI
+    /// </summary>
+    private GameObject CurrentUI;
+
+    
 
     void Start()
     {
-        //Fetch the Event System from the Scene
-        m_EventSystem = GetComponent<EventSystem>();
         rm = GetComponent<ResourceManager>();
-
         CurrentState = ActiveItemState.FREE;
     }
 
@@ -98,8 +104,6 @@ public class SceneManager : MonoBehaviour
                 break;
         }
         ActiveItem.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
-
-        Slots.DisplayAvailability();
 
         CurrentState = ActiveItemState.PLANTING;
     }
@@ -156,5 +160,24 @@ public class SceneManager : MonoBehaviour
     private GameObject PickAPlant()
     {
         return NormalPlant;
+    }
+
+    /// <summary>
+    /// Call on travel to the selected planet
+    /// </summary>
+    /// <param name="planet">The selected planet</param>
+    public void TravelTo(Planet planet)
+    {
+        LandingUI.SetActive(true);
+        NavigationUI.SetActive(false);
+    }
+
+    /// <summary>
+    /// Return to the navigation UI after a planet
+    /// </summary>
+    public void LaunchFromPlanet()
+    {
+        LandingUI.SetActive(false);
+        NavigationUI.SetActive(true);
     }
 }

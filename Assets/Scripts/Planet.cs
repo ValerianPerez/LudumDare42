@@ -30,10 +30,10 @@ public class Planet : MonoBehaviour
                 
         this.canvas = this.gameObject.GetComponentInParent<Canvas>();
 
-        this.textTr_planet = this.canvas.transform.Find("Text_info_planete");
+        this.textTr_planet = this.transform.parent.Find("Text_info_planete");
         this.infoPlanete = textTr_planet.GetComponent<Text>();
 
-        this.textTr_travel = this.canvas.transform.Find("Text_info_travel");
+        this.textTr_travel = this.transform.parent.Find("Text_info_travel");
         this.infoTravel = textTr_travel.GetComponent<Text>();
 
     }
@@ -62,6 +62,7 @@ public class Planet : MonoBehaviour
             {
                 //================================================================
                 // Put here code to land on the planet
+                GameObject.Find("SceneManager").GetComponent<SceneManager>().TravelTo(this);
                 //================================================================
                 
                 Debug.Log("land");
@@ -95,10 +96,10 @@ public class Planet : MonoBehaviour
     public void getPlanetInfo()
     {
         this.canvas = this.gameObject.GetComponentInParent<Canvas>();
-        this.textTr_planet = this.canvas.transform.Find("Text_info_planete");
+        this.textTr_planet = this.transform.parent.Find("Text_info_planete");
         this.infoPlanete = textTr_planet.GetComponent<Text>();
 
-        this.textTr_travel = this.canvas.transform.Find("Text_info_travel");
+        this.textTr_travel = this.transform.parent.Find("Text_info_travel");
         this.infoTravel = textTr_travel.GetComponent<Text>();
 
         if (this.myPlanet != null)
