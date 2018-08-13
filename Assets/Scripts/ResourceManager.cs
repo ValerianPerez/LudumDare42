@@ -71,8 +71,9 @@ public class ResourceManager : MonoBehaviour
 
         WaterTimer.text = minutes + ":" + seconds;
 
-        ManagePeople();
-        ManageFood();
+        ConsumeResourcesForTime(Time.deltaTime);
+
+
         MaxTotalResources = (compartments.columns * compartments.rows - compartments.damaged_count) * compartments.resource_per_compartment;
         int OccupiedByHuman = (int)Mathf.Ceil(HumanResource / compartments.resource_per_compartment);
         FoodResource = Mathf.Min(FoodResource, MaxTotalResources - OccupiedByHuman * compartments.resource_per_compartment);
@@ -88,26 +89,33 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
+    public void ConsumeResourcesForTime(float time)
+    {
+        ManagePeople(time);
+        ManageFood(time);
+    }
+
     float ManageWater()
     {
         GameObject[] plants = GameObject.FindGameObjectsWithTag("Plant");
         float water_drained = 1f;
-        Debug.Log("Found plants: " + plants.Length);
         ItemController item;
         foreach (GameObject plant in plants)
         {
-            item = plant.GetComponent<ItemController>();
+            if (plant != null) { 
+                item = plant.GetComponent<ItemController>();
             
-            if (WaterResource - item.GetWaterDrain() <= 0)
-            {
-                WaterResource = 0;
-                item.SoDryIWantToDie();
-            } else
-            {
-                WaterResource -= item.GetWaterDrain();
-                water_drained += item.GetWaterDrain();
+                if (WaterResource - item.GetWaterDrain() <= 0)
+                {
+                    WaterResource = 0;
+                    item.SoDryIWantToDie();
+                } else
+                {
+                    WaterResource -= item.GetWaterDrain();
+                    water_drained += item.GetWaterDrain();
+                }
             }
-            
+
         }
         ;
         Debug.Log("Fwater_drained: " + water_drained);
@@ -115,10 +123,10 @@ public class ResourceManager : MonoBehaviour
     }
 
 
-    void ManagePeople()
+    void ManagePeople(float time)
     {
-        HumanResource += (BornPerSec - DeadPerSec) * HumanResource * Time.deltaTime;
-        DeadCount += DeadPerSec * HumanResource * Time.deltaTime;
+        HumanResource += (BornPerSec - DeadPerSec) * HumanResource * time;
+        DeadCount += DeadPerSec * HumanResource * time;
         if (FoodResource < 0)
         {
             float humans_to_be_eaten = -FoodResource / FoodInsidePerson;
@@ -128,8 +136,8 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    void ManageFood()
+    void ManageFood(float time)
     {
-        FoodResource -= HumanResource * FoodConsumedPerPerson * Time.deltaTime;
+        FoodResource -= HumanResource * FoodConsumedPerPerson * time;
     }
 }

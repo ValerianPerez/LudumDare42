@@ -62,6 +62,10 @@ public class CustomSceneManager : MonoBehaviour
     /// </summary>
     private GameObject CurrentUI;
 
+    public float BasicWaterLevel;
+
+    public float DefaultTravelTime;
+
     
 
     void Start()
@@ -174,6 +178,10 @@ public class CustomSceneManager : MonoBehaviour
     public void TravelTo(Planet planet)
     {
         LandingUI.SetActive(true);
+        rm.MaxWater = planet.GetWaterMultiplier() * BasicWaterLevel;
+        rm.WaterResource = rm.MaxWater;
+        rm.ConsumeResourcesForTime(DefaultTravelTime);
+        rm.IsActive = true;
         NavigationUI.SetActive(false);
         rm.IsActive = true;
     }
@@ -183,6 +191,7 @@ public class CustomSceneManager : MonoBehaviour
     /// </summary>
     public void LaunchFromPlanet()
     {
+        rm.IsActive = false;
         LandingUI.SetActive(false);
         NavigationUI.SetActive(true);
     }

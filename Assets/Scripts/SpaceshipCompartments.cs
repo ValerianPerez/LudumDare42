@@ -109,6 +109,13 @@ public class SpaceshipCompartments : MonoBehaviour {
                 float y_scale = food_partial_level;
                 compartmentMask.localScale = new Vector3(1, y_scale, 1);
             }
+            else
+            {
+                food_sprite.SetActive(false);
+                human_sprite.SetActive(false);
+                float y_scale = food_partial_level;
+                compartmentMask.localScale = new Vector3(1, 0, 1);
+            }
         }
 
         for (int i = child_count - damaged_count; i < child_count - damaged_count + partial_damaged_count; i++)
