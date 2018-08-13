@@ -264,6 +264,52 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1867488399264314, guid: c6b94dfe2d247ff41a993d4fc02ecb75, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114310805693193162, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
+        type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114310805693193162, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
+        type: 2}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114310805693193162, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
+        type: 2}
+      propertyPath: m_Text
+      value: "Audouin Kelly (Artist & Developper)\nL\xE9v\xEAque Hugo (Developper
+        & Sound Designer)\nPerez Pascal (Artist & Sound Designer)\nPerez Val\xE9rian
+        (Developper)\nRucar Aur\xE9lien (Developper)\nZyla Wojciech (Developper)\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 224597481581048322, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -177.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 224597481581048322, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 354.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 114310805693193162, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
+        type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224597481581048322, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224597481581048322, guid: c6b94dfe2d247ff41a993d4fc02ecb75,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 872.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b94dfe2d247ff41a993d4fc02ecb75, type: 2}
   m_IsPrefabAsset: 0
@@ -742,7 +788,9 @@ MonoBehaviour:
   FoodProduction: 0
   FoodResource: 0
   FoodConsumedPerPerson: 0.00012
+  FoodInsidePerson: 0
   DeadCount: 0
+  EatenHumans: 0
   MaxTotalResources: 0
 --- !u!114 &1781859626
 MonoBehaviour:
