@@ -79,6 +79,12 @@ public class ResourceManager : MonoBehaviour
 
         compartments.Humans = HumanResource;
         compartments.Food = FoodResource;
+
+        //GameOver Condition
+        if (HumanResource <= 0)
+        {
+            GameObject.Find("SceneMaanger").GetComponent<CustomSceneManager>().LoseTheGame();
+        }
     }
 
     float ManageWater()
