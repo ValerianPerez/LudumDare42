@@ -164,7 +164,7 @@ public class Planet : MonoBehaviour
 
     public double GetTemperature() { return myPlanet.getTemperature(); }
     public double GetRadiation() { return myPlanet.getRadiation(); }
-    public double GetWaterMultiplier() { return myPlanet.getCoeficienEau(); }
+    public float GetWaterMultiplier() { return myPlanet.getCoeficienEau(); }
     public double GetDisasterFrequency() { return myPlanet.getVitesseDesastre(); }   
 
     public int getPlanetIndex()
@@ -183,7 +183,7 @@ public class Planet : MonoBehaviour
         string name; // Nom de la planète
         double temperature; // Temperature de la planete
         double radiation; // Niveau de radiation de la planete
-        double coeficienEau; // Coeficien de remplissage des ressources en eau
+        float coeficienEau; // Coeficien de remplissage des ressources en eau
         double vitesseDesastre; // Influe sur la vitesse d'apparition des desastres
 
         // Constructeur
@@ -217,7 +217,7 @@ public class Planet : MonoBehaviour
             return this.radiation;
         }
 
-        public double getCoeficienEau()
+        public float getCoeficienEau()
         {
             return this.coeficienEau;
         }
@@ -308,9 +308,9 @@ public class Planet : MonoBehaviour
         }
 
         // Détermine le coeficient d'eau d'une planète
-        public double getCoefEau()
+        public float getCoefEau()
         {
-            double coef = 0;
+            float coef = 0;
 
             if (type == BURNING_PLANET || type == DESERT_PLANET)
             {
@@ -325,7 +325,7 @@ public class Planet : MonoBehaviour
                 coef = Random.Range(1.5f, 2.5f);
             }
 
-            return System.Math.Round(coef);
+            return coef;
         }
 
         // Détermine le coeficient de vitesse de départ des désastres
